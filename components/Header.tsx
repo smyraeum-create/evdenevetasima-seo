@@ -38,9 +38,6 @@ export default function Header() {
               <Link href="/nakliyat-sozlesmesi" className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-orange-500 transition-colors">
                 Nakliyat Sözleşmesi
               </Link>
-              <Link href="/iletisim" className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-orange-500 transition-colors">
-                İletişim
-              </Link>
             </div>
           </div>
 
@@ -98,6 +95,10 @@ export default function Header() {
 
           <Link href="/blog" className="hover:text-orange-500 transition-colors">
             Blog
+          </Link>
+
+          <Link href="/iletisim" className="hover:text-orange-500 transition-colors font-bold text-gray-900">
+            İletişim
           </Link>
           
           <a href="tel:+905322830628" className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-bold transition-all shadow-md transform hover:scale-105 flex items-center gap-2">
