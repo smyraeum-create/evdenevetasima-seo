@@ -10,7 +10,6 @@ export default function CerezPolitikasiPage() {
   return (
     <div className="min-h-screen bg-gray-50 pb-20">
       
-      {/* Üst Banner */}
       <div className="bg-blue-950 py-16 text-center text-white border-b-4 border-orange-500">
         <div className="container mx-auto px-4">
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">Çerez Aydınlatma Metni</h1>
@@ -58,8 +57,8 @@ export default function CerezPolitikasiPage() {
 
             <h2 className="text-xl font-bold text-blue-950 border-b pb-2 mt-8">4. Haklarınız ve İletişim</h2>
             <p>
-              KVKK’nın 11. maddesi uyarınca haklarınıza ilişkin taleplerinizi, sitemizde yer alan telefon numarası veya e-posta adresi üzerinden firmamıza iletebilirsiniz. 
-              Daha fazla bilgi için <Link href="/" className="text-orange-500 font-bold hover:underline">Ana Sayfa'ya</Link> dönebilir veya bizimle iletişime geçebilirsiniz.
+              KVKK&apos;nın 11. maddesi uyarınca haklarınıza ilişkin taleplerinizi, sitemizde yer alan telefon numarası veya e-posta adresi üzerinden firmamıza iletebilirsiniz. 
+              Daha fazla bilgi için <Link href="/" className="text-orange-500 font-bold hover:underline">Ana Sayfaya</Link> dönebilir veya bizimle iletişime geçebilirsiniz.
             </p>
 
           </div>
