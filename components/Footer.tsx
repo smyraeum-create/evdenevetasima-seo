@@ -19,6 +19,7 @@ export default function Footer() {
             <li><Link href="/istanbul/kadikoy" className="hover:text-orange-400 transition-colors">Kadıköy Nakliyat</Link></li>
             <li><Link href="/istanbul/besiktas" className="hover:text-orange-400 transition-colors">Beşiktaş Nakliyat</Link></li>
             <li><Link href="/istanbul/sisli" className="hover:text-orange-400 transition-colors">Şişli Nakliyat</Link></li>
+            <li><Link href="/cerez-politikasi" className="hover:text-orange-400 transition-colors">Çerez Politikası</Link></li>
           </ul>
         </div>
         
