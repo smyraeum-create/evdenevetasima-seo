@@ -26,7 +26,7 @@ export default function RootLayout({
             <Link href="/" className="flex items-center gap-3 group">
               <div className="relative w-48 h-12 flex items-center">
                 <Image
-                  src="/brand/logo.webp"
+                  src="/brand/logo.svg"
                   alt="Evden Eve Taşıma Logosu"
                   fill
                   sizes="(max-width: 768px) 150px, 192px"
