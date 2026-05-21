@@ -15,7 +15,7 @@ export default function Home() {
     { id: "buyukcekmece", name: "Büyükçekmece" },
     { id: "catalca", name: "Çatalca" },
     { id: "esenler", name: "Esenler" },
-    { id: "esenyurt", name: "Esenyurt", special: "En Kalabalık" },
+    { id: "esenyurt", name: "Esenyurt" },
     { id: "eyupsultan", name: "Eyüpsultan" },
     { id: "fatih", name: "Fatih" },
     { id: "gaziosmanpasa", name: "Gaziosmanpaşa" },
@@ -122,11 +122,6 @@ export default function Home() {
                     <span className="text-white font-black text-sm md:text-base tracking-wide uppercase group-hover:scale-110 transition-transform">
                       {ilce.name}
                     </span>
-                    {ilce.special && (
-                      <span className="mt-2 px-2 py-0.5 bg-orange-500 text-white text-[10px] font-black rounded-md uppercase">
-                        {ilce.special}
-                      </span>
-                    )}
                   </div>
                 </Link>
               ))}
