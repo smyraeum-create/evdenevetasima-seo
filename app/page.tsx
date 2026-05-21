@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Home() {
   const avrupaYakasi = [
@@ -74,7 +73,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Grid */}
       <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:mt-[-100px] relative z-20">
@@ -104,7 +102,6 @@ export default function Home() {
 
           <div className="mb-20">
             <div className="flex items-center gap-4 mb-10">
-              <span className="text-4xl">🇪🇺</span>
               <div>
                 <h3 className="text-2xl font-black text-blue-950">Avrupa Yakası İlçeleri</h3>
                 <p className="text-gray-500 font-medium text-sm">Merkezi ve genişleyen alanlarıyla 25 ilçe</p>
@@ -138,7 +135,6 @@ export default function Home() {
 
           <div>
             <div className="flex items-center gap-4 mb-10">
-              <span className="text-4xl">🕌</span>
               <div>
                 <h3 className="text-2xl font-black text-blue-950">Anadolu Yakası İlçeleri</h3>
                 <p className="text-gray-500 font-medium text-sm">Boğaz hattı ve geniş yerleşim bölgelerini kapsayan 14 ilçe</p>
