@@ -109,6 +109,7 @@ export default function ItemListPage() {
                       <select value={formData.hizmetTuru} onChange={(e) => updateForm('hizmetTuru', e.target.value)} required className="w-full px-4 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50 text-gray-800 font-medium cursor-pointer">
                         <option value="">Lütfen Bir Hizmet Seçiniz...</option>
                         <option value="Evden Eve Nakliyat">Evden Eve Nakliyat</option>
+                        <option value="Asansörlü Nakliyat">Asansörlü Nakliyat</option>
                         <option value="Şehirler Arası Nakliyat">Şehirler Arası Nakliyat</option>
                         <option value="Kurumsal Ofis/Plaza Taşıma">Kurumsal Ofis/Plaza Taşıma</option>
                         <option value="Otomobil ve Araç Lojistiği">Otomobil ve Araç Lojistiği</option>
@@ -135,7 +136,8 @@ export default function ItemListPage() {
                   <div className="space-y-6">
                     <h2 className="text-2xl font-black text-blue-950 mb-6 border-b pb-4">Operasyon Hacmi ve Detaylar</h2>
                     
-                    {(formData.hizmetTuru === "Evden Eve Nakliyat" || formData.hizmetTuru === "Şehirler Arası Nakliyat") && (
+                    {/* DİKKAT: Asansörlü Nakliyat da buraya eklendi */}
+                    {(formData.hizmetTuru === "Evden Eve Nakliyat" || formData.hizmetTuru === "Şehirler Arası Nakliyat" || formData.hizmetTuru === "Asansörlü Nakliyat") && (
                       <div>
                         <label className="block text-sm font-bold text-gray-700 mb-2">Mevcut Evin Oda Sayısı</label>
                         <select value={formData.odaSayisi} onChange={(e) => updateForm('odaSayisi', e.target.value)} className="w-full px-4 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50 text-gray-800">
