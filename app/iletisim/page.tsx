@@ -7,6 +7,38 @@ export const metadata: Metadata = {
   description: "Evden eve nakliyat fiyatları ve taşıma detayları için bize 7/24 ulaşabilirsiniz. Profesyonel ekibimizden hemen ücretsiz ekspertiz talep edin.",
 };
 
+// --- ELİTE SVG İKON SETİ ---
+const MapPinIcon = () => (
+  <svg className="w-6 h-6 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.242-4.243a8 8 0 1111.314 0z" />
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+  </svg>
+);
+
+const PhoneIcon = () => (
+  <svg className="w-6 h-6 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+  </svg>
+);
+
+const MailIcon = () => (
+  <svg className="w-6 h-6 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+  </svg>
+);
+
+const ClockIcon = () => (
+  <svg className="w-6 h-6 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+);
+
+const InfoCircleIcon = () => (
+  <svg className="w-5 h-5 text-blue-950" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+);
+
 export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
@@ -14,24 +46,25 @@ export default function ContactPage() {
       <PageBanner 
         category="Hızlı Erişim"
         title="Bizimle İletişime Geçin"
-        description="Taşınma planınızı ertelemeyin. 7/24 kesintisiz destek hattımız ve uzman ekspertiz ekibimizle bir telefon kadar yakınınızdayız."
-        bgImage="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000" 
+        description="Taşınma planınızı ertelemeyin. Uzman ekspertiz ekibimizle ve güçlü operasyon ağımızla bir telefon kadar yakınınızdayız."
+        bgImage="/images/banners/iletisim.webp" 
       />
 
       <main className="flex-grow py-16 md:py-20 max-w-7xl mx-auto px-4 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           
           <div className="space-y-8">
-            <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100">
-              <h2 className="text-2xl font-black text-blue-950 mb-6">Merkez Ofisimiz</h2>
+            <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-gray-100">
+              <h2 className="text-2xl font-black text-blue-950 mb-8 border-b border-gray-100 pb-4">Merkez Operasyon Ofisi</h2>
               
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl">📍</span>
+              <div className="space-y-8">
+                
+                <div className="flex items-start gap-5">
+                  <div className="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center flex-shrink-0 border border-orange-100">
+                    <MapPinIcon />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900">Adres</h3>
+                    <h3 className="font-bold text-gray-900 text-lg">Adres</h3>
                     <p className="text-gray-600 mt-1 leading-relaxed text-sm font-medium">
                       Küçükbakkalköy Mh. Kayışdağı Cd. Ali Ay Sk.<br />
                       No: 3/1 Orkide Apt. Ataşehir / İSTANBUL
@@ -39,32 +72,49 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl">📞</span>
+                <div className="flex items-start gap-5">
+                  <div className="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center flex-shrink-0 border border-orange-100">
+                    <PhoneIcon />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900">Telefon</h3>
-                    <a href="tel:+905322830628" className="text-orange-600 hover:text-orange-700 font-black mt-1 block transition-colors text-lg">
-                      0532 283 0628
+                    <h3 className="font-bold text-gray-900 text-lg">Telefon</h3>
+                    <a href="tel:+905322830628" className="text-orange-600 hover:text-orange-700 font-black mt-1 block transition-colors text-xl">
+                      0532 283 06 28
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl">✉️</span>
+                <div className="flex items-start gap-5">
+                  <div className="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center flex-shrink-0 border border-orange-100">
+                    <MailIcon />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900">E-Posta</h3>
+                    <h3 className="font-bold text-gray-900 text-lg">E-Posta</h3>
                     <a href="mailto:info@evdenevetasima.org" className="text-gray-600 hover:text-orange-600 mt-1 block transition-colors text-sm font-medium">
                       info@evdenevetasima.org
                     </a>
                   </div>
                 </div>
+
+                {/* MÜHÜRLÜ EKLENTİ: ÇALIŞMA SAATLERİ & WHATSAPP */}
+                <div className="flex items-start gap-5 bg-gray-50 p-5 rounded-2xl border border-gray-200">
+                  <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm">
+                    <ClockIcon />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 text-lg">Çalışma Saatleri</h3>
+                    <p className="text-blue-950 font-black text-lg mt-1">08:00 - 19:00</p>
+                    <p className="text-xs text-gray-600 mt-3 font-medium leading-relaxed bg-white p-3 rounded-xl border border-gray-100 shadow-sm">
+                      <strong className="text-orange-500 font-black block mb-1">Mesai Dışı Destek:</strong>
+                      Çalışma saatleri dışındaki zamanlarda <strong className="text-green-600 font-bold">WhatsApp</strong> üzerinden ulaştığınızda, ilk müsait müşteri temsilcimiz operasyon planlaması için size anında dönüş sağlayacaktır.
+                    </p>
+                  </div>
+                </div>
+
               </div>
             </div>
 
+            {/* Harita */}
             <div className="w-full h-80 bg-gray-200 rounded-3xl overflow-hidden shadow-xl border border-gray-100">
               <iframe 
                 src="https://maps.google.com/maps?q=Ata%C5%9Fehir%2C%20%C4%B0stanbul&t=&z=13&ie=UTF8&iwloc=&output=embed" 
@@ -78,45 +128,71 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-gray-100">
+          {/* SAĞ KOLON: FORMLAR */}
+          <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-gray-100 flex flex-col">
             <h2 className="text-2xl font-black text-blue-950 mb-2">Hızlı Fiyat Teklifi Alın</h2>
-            <p className="text-sm text-gray-500 mb-8 font-medium">Eşyalarınızın nereden nereye taşınacağını yazın, sizi hemen arayıp fiyat verelim.</p>
+            <p className="text-sm text-gray-500 mb-8 font-medium">Eşyalarınızın nereden nereye taşınacağını yazın, sizi hemen arayıp güncel maliyet analizi sunalım.</p>
             
-            <form className="space-y-6">
+            <form className="space-y-6 flex-grow flex flex-col">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="ad" className="block text-sm font-bold text-gray-700 mb-2">Adınız Soyadınız</label>
-                  <input type="text" id="ad" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50" placeholder="Ahmet Yılmaz" />
+                  <input type="text" id="ad" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50 focus:bg-white" placeholder="Ahmet Yılmaz" />
                 </div>
                 <div>
                   <label htmlFor="telefon" className="block text-sm font-bold text-gray-700 mb-2">Telefon Numaranız</label>
-                  <input type="tel" id="telefon" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50" placeholder="0532 XXX XX XX" />
+                  <input type="tel" id="telefon" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50 focus:bg-white" placeholder="0532 XXX XX XX" />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="nereden" className="block text-sm font-bold text-gray-700 mb-2">Nereden Taşınacak?</label>
-                  <input type="text" id="nereden" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50" placeholder="Örn: Kadıköy, İstanbul" />
+                  <input type="text" id="nereden" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50 focus:bg-white" placeholder="Örn: Kadıköy, İstanbul" />
                 </div>
                 <div>
                   <label htmlFor="nereye" className="block text-sm font-bold text-gray-700 mb-2">Nereye Taşınacak?</label>
-                  <input type="text" id="nereye" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50" placeholder="Örn: Çankaya, Ankara" />
+                  <input type="text" id="nereye" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50 focus:bg-white" placeholder="Örn: Çankaya, Ankara" />
                 </div>
               </div>
 
               <div>
                 <label htmlFor="mesaj" className="block text-sm font-bold text-gray-700 mb-2">Taşınma Detayları (Opsiyonel)</label>
-                <textarea id="mesaj" rows={4} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all resize-none bg-gray-50" placeholder="Oda sayısı, kaçıncı kat, asansör var mı? vb. detayları yazabilirsiniz."></textarea>
+                <textarea id="mesaj" rows={4} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all resize-none bg-gray-50 focus:bg-white" placeholder="Oda sayısı, kaçıncı kat, asansör var mı? vb. detayları yazabilirsiniz."></textarea>
               </div>
 
-              <button type="button" className="w-full bg-orange-500 hover:bg-orange-600 text-white font-black text-lg py-4 rounded-xl transition-all shadow-lg transform hover:-translate-y-1 uppercase tracking-wider">
-                Fiyat Teklifi İste
-              </button>
-              
-              <p className="text-xs text-center text-gray-400 mt-4 font-medium">
-                Formu göndererek <Link href="/cerez-politikasi" className="underline hover:text-gray-600">Gizlilik Politikamızı</Link> kabul etmiş olursunuz.
-              </p>
+              <div className="bg-blue-50 border-l-4 border-blue-950 p-4 rounded-r-xl mt-4">
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5"><InfoCircleIcon /></div>
+                  <p className="text-sm text-blue-900 font-medium leading-relaxed">
+                    <strong className="font-black block mb-1">24 Saat İçinde Resmi Teklif</strong>
+                    Dijital ekspertiz formunuz operasyon merkezimize ulaştığında, detaylı maliyet analizi yapılarak <strong className="font-bold">en geç 24 saat içerisinde</strong> resmi fiyat teklifimiz tarafınıza sunulacaktır.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-auto pt-6">
+                <div className="flex items-center justify-between p-3 bg-gray-50 border border-gray-200 rounded-xl mb-6 max-w-xs shadow-inner">
+                  <div className="flex items-center gap-3 pl-2">
+                    <input type="checkbox" id="captcha" className="w-6 h-6 text-orange-500 rounded border-gray-300 focus:ring-orange-500 cursor-pointer" />
+                    <label htmlFor="captcha" className="text-sm font-bold text-gray-700 cursor-pointer">Ben robot değilim</label>
+                  </div>
+                  <div className="flex flex-col items-center justify-center">
+                    {/* reCAPTCHA Logo Placeholder */}
+                    <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" className="w-8 opacity-80" />
+                    <span className="text-[9px] text-gray-500 mt-1 font-medium">reCAPTCHA</span>
+                  </div>
+                </div>
+
+                <button type="button" className="w-full bg-orange-500 hover:bg-orange-600 text-white font-black text-lg py-4 rounded-xl transition-all shadow-lg transform hover:-translate-y-1 uppercase tracking-wider">
+                  Fiyat Teklifi İste
+                </button>
+                
+                <p className="text-xs text-center text-gray-400 mt-4 font-medium">
+                  Formu göndererek <Link href="/cerez-politikasi" className="underline hover:text-gray-600">Gizlilik Politikamızı</Link> kabul etmiş olursunuz.
+                </p>
+              </div>
+
             </form>
           </div>
           
