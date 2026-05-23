@@ -21,7 +21,6 @@ interface Item {
 
 export default function CalculatorPage() {
   const [items, setItems] = useState<Item[]>([
-    // Salon & Oturma Odası
     { name: "Üçlü Koltuk", m3: 1.5, count: 0, category: "Salon & Oturma Odası" },
     { name: "İkili Koltuk", m3: 1.1, count: 0, category: "Salon & Oturma Odası" },
     { name: "Tekli Koltuk / Berjer", m3: 0.6, count: 0, category: "Salon & Oturma Odası" },
@@ -34,7 +33,6 @@ export default function CalculatorPage() {
     { name: "Orta Sehpa", m3: 0.3, count: 0, category: "Salon & Oturma Odası" },
     { name: "Büyük Halı (6m²)", m3: 0.2, count: 0, category: "Salon & Oturma Odası" },
 
-    // Yatak Odası
     { name: "Çift Kişilik Yatak (Baza+Başlık)", m3: 2.0, count: 0, category: "Yatak Odası" },
     { name: "Tek Kişilik Yatak (Baza+Başlık)", m3: 1.2, count: 0, category: "Yatak Odası" },
     { name: "Gardırop (Sürgülü/Büyük)", m3: 3.5, count: 0, category: "Yatak Odası" },
@@ -44,7 +42,6 @@ export default function CalculatorPage() {
     { name: "Makyaj Masası", m3: 0.6, count: 0, category: "Yatak Odası" },
     { name: "Bebek Beşiği", m3: 0.8, count: 0, category: "Yatak Odası" },
 
-    // Beyaz Eşya
     { name: "Buzdolabı (Standart)", m3: 1.2, count: 0, category: "Beyaz Eşya" },
     { name: "Buzdolabı (Gardırop Tipi)", m3: 2.0, count: 0, category: "Beyaz Eşya" },
     { name: "Çamaşır Makinesi", m3: 0.5, count: 0, category: "Beyaz Eşya" },
@@ -53,24 +50,20 @@ export default function CalculatorPage() {
     { name: "Kurutma Makinesi", m3: 0.5, count: 0, category: "Beyaz Eşya" },
     { name: "Derin Dondurucu", m3: 0.6, count: 0, category: "Beyaz Eşya" },
 
-    // Çalışma Odası
     { name: "Çalışma Masası", m3: 0.6, count: 0, category: "Çalışma Odası" },
     { name: "Ofis Sandalyesi", m3: 0.3, count: 0, category: "Çalışma Odası" },
     { name: "Kitaplık", m3: 0.8, count: 0, category: "Çalışma Odası" },
     { name: "Evrak Dolabı", m3: 1.0, count: 0, category: "Çalışma Odası" },
 
-    // Mutfak & Banyo
     { name: "Mutfak Masası", m3: 0.5, count: 0, category: "Mutfak & Banyo" },
     { name: "Mutfak Sandalyesi / Tabure", m3: 0.1, count: 0, category: "Mutfak & Banyo" },
     { name: "Su Sebili", m3: 0.3, count: 0, category: "Mutfak & Banyo" },
     { name: "Banyo Dolabı (Boy)", m3: 0.5, count: 0, category: "Mutfak & Banyo" },
 
-    // Antre & Hol
     { name: "Portmanto / Vestiyer", m3: 1.5, count: 0, category: "Antre & Hol" },
     { name: "Ayakkabılık", m3: 0.4, count: 0, category: "Antre & Hol" },
     { name: "Dresuar", m3: 0.4, count: 0, category: "Antre & Hol" },
 
-    // Kutu, Koli & Hurçlar
     { name: "Standart Karton Koli", m3: 0.1, count: 0, category: "Kutu, Koli & Hurçlar" },
     { name: "Büyük Boy Koli", m3: 0.15, count: 0, category: "Kutu, Koli & Hurçlar" },
     { name: "Kıyafet Hurcu / Çuval", m3: 0.1, count: 0, category: "Kutu, Koli & Hurçlar" },
@@ -86,7 +79,6 @@ export default function CalculatorPage() {
   };
 
   const renderCategory = (categoryName: Category) => {
-    // Kategoriye ait elemanların dizideki gerçek index'lerini bulmamız lazım
     const categoryItems = items.map((item, index) => ({ ...item, originalIndex: index }))
                                .filter(item => item.category === categoryName);
 
@@ -97,7 +89,6 @@ export default function CalculatorPage() {
         <h3 className="text-xl font-black text-blue-950 mb-6 border-b-2 border-gray-100 pb-3 flex items-center gap-2">
           <span className="text-orange-500">::</span> {categoryName}
         </h3>
-        {/* Çoklu liste için Grid (Izgara) Yapısı */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {categoryItems.map((item) => (
             <div key={item.originalIndex} className="flex justify-between items-center p-4 bg-gray-50 hover:bg-white hover:shadow-md transition-all rounded-2xl border border-gray-100">
