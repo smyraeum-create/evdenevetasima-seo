@@ -9,13 +9,12 @@ export default function ItemListPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  // Form Veri Modeli - Tüm hizmetleri kapsayacak şekilde genişletildi
   const [formData, setFormData] = useState({
     hizmetTuru: "",
     nereden: "",
     nereye: "",
     odaSayisi: "",
-    esyaDetayi: "", // Yeni: Müşterinin serbestçe eşya veya proje detaylarını yazabileceği alan
+    esyaDetayi: "",
     adSoyad: "",
     telefon: "",
     eposta: ""
@@ -34,9 +33,6 @@ export default function ItemListPage() {
     setIsSubmitting(true);
     
     try {
-      // BURASI BACKEND/MAİL SERVİSİ İÇİN HAZIRLANMIŞTIR
-      // Örnek: await fetch('/api/send-email', { method: 'POST', body: JSON.stringify(formData) })
-      // Şimdilik sistemin çalıştığını simüle ediyoruz:
       await new Promise(resolve => setTimeout(resolve, 2000));
       
       setIsSubmitting(false);
@@ -77,7 +73,6 @@ export default function ItemListPage() {
             </div>
           ) : (
             <>
-              {/* Progress Bar (İlerleme Çubuğu) */}
               <div className="mb-12 relative px-4">
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1.5 bg-gray-100 rounded-full z-0"></div>
                 <div 
@@ -94,7 +89,6 @@ export default function ItemListPage() {
 
               <form onSubmit={handleSubmit} className="space-y-8 animate-in fade-in duration-300">
                 
-                {/* ADIM 1: Hizmet Türü ve Rota */}
                 {step === 1 && (
                   <div className="space-y-6">
                     <h2 className="text-2xl font-black text-blue-950 mb-6 border-b pb-4">Hizmet Türü ve Lojistik Rotası</h2>
@@ -126,12 +120,10 @@ export default function ItemListPage() {
                   </div>
                 )}
 
-                {/* ADIM 2: Hacim ve Eşya Detayları */}
                 {step === 2 && (
                   <div className="space-y-6">
                     <h2 className="text-2xl font-black text-blue-950 mb-6 border-b pb-4">Operasyon Hacmi ve Detaylar</h2>
                     
-                    {/* Sadece evden eve ise oda sayısı sor, ofis veya araçsa sorma */}
                     {(formData.hizmetTuru === "Evden Eve Nakliyat" || formData.hizmetTuru === "Şehirler Arası Nakliyat") && (
                       <div>
                         <label className="block text-sm font-bold text-gray-700 mb-2">Mevcut Evin Oda Sayısı</label>
@@ -160,7 +152,6 @@ export default function ItemListPage() {
                   </div>
                 )}
 
-                {/* ADIM 3: İletişim, Onay ve Captcha */}
                 {step === 3 && (
                   <div className="space-y-6">
                     <h2 className="text-2xl font-black text-blue-950 mb-6 border-b pb-4">İletişim ve Güvenlik Doğrulaması</h2>
@@ -181,7 +172,6 @@ export default function ItemListPage() {
                       <input type="tel" value={formData.telefon} onChange={(e) => updateForm('telefon', e.target.value)} required className="w-full px-4 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50" placeholder="0532 XXX XX XX" />
                     </div>
 
-                    {/* MÜHÜRLÜ CAPTCHA ARAYÜZÜ */}
                     <div className="flex items-center justify-between p-3 bg-gray-50 border border-gray-200 rounded-xl max-w-xs shadow-inner mt-4">
                       <div className="flex items-center gap-3 pl-2">
                         <input type="checkbox" id="captcha" required className="w-6 h-6 text-orange-500 rounded border-gray-300 focus:ring-orange-500 cursor-pointer" />
@@ -196,7 +186,6 @@ export default function ItemListPage() {
                   </div>
                 )}
 
-                {/* NAVİGASYON BUTONLARI */}
                 <div className="flex gap-4 pt-8 border-t border-gray-100 mt-10">
                   {step > 1 && (
                     <button type="button" onClick={handlePrev} className="px-8 py-4 bg-gray-100 hover:bg-gray-200 text-gray-700 font-black rounded-xl transition-all uppercase tracking-wider text-sm w-1/3">
