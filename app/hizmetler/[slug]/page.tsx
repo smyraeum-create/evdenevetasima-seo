@@ -12,7 +12,7 @@ const serviceData: Record<string, any> = {
     title: "Evden Eve Nakliyat",
     desc: "Avrupa standartlarında ambalajlama, modüler asansör sistemleri ve sıfır risk politikası ile anahtar teslim ev taşıma operasyonları.",
     bgImage: "/images/hizmetler/evden-eve-nakliyat-banner.webp",
-    intro: "Geleneksel ve yıpratıcı taşınma yöntemlerini tamamen geride bırakıyoruz. Operasyon sürecimiz; eşyalarınızın yapısal analizinin yapılmasıyla başlar. Özel kraft kağıtlı balonlu naylonlar, mobilya battaniyeleri ve şok emici köşelikler ile her bir envanteriniz endüstriyel standartlarda koruma altına alınır. Merdiven boşluklarındaki çarpma risklerini ortadan kaldıran dış cephe asansörlerimiz ve çelik kasalı araçlarımızla, evinizi değil, huzurunuzu yeni adresinize taşıyoruz.",
+    intro: "Geleneksel ve yıpratıcı taşınma yöntemlerini tamamen geride bırakıyoruz. Operasyon sürecimiz; eşyalarınızın yapısal analizinin yapılmasıyla başlar. Özel kraft kağıtlı balonlu naylonlar, mobilya battaniyeleri og şok emici köşelikler ile her bir envanteriniz endüstriyel standartlarda koruma altına alınır. Merdiven boşluklarındaki çarpma risklerini ortadan kaldıran dış cephe asansörlerimiz ve çelik kasalı araçlarımızla, evinizi değil, huzurunuzu yeni adresinize taşıyoruz.",
     technicalDetails: [
       { label: "Ambalaj Tipi", value: "3 Katmanlı Kraft Havalı Patpat & Endüstriyel Streç" },
       { label: "Araç Filosu", value: "Çelik Kasa, İçi Mobilya Kaplı, Süspansiyonlu Kamyonlar" },
@@ -69,7 +69,7 @@ const serviceData: Record<string, any> = {
       { title: "Hasar Tespiti ve Raporlama", desc: "Aracınız teslim alınırken 360 derece fotoğraflanır, çizik/hasar formu tutanakla kayıt altına alınarak operasyon başlatılır." },
       { title: "Profesyonel Yükleme", desc: "Eğimi minimize edilmiş rampalarla araca yüklenen otomobil, lastiklerinden sekiz nokta bağlantısıyla (lashing) şasiye sabitlenir." },
       { title: "Kapalı Kasa Güvenliği", desc: "VIP taşımalarda, araç yoldaki taş sekmesi, yağmur, dolu ve dış müdahalelere karşı tamamen kapalı kasada izole edilir." },
-      { title: "Adrese Teslim", desc: "Varış noktasında tekrar hasar kontrolü yapılır, araç alıcısına ıslak imzalı tutanak ve kilometre teyidi ile teslim edilir." }
+      { title: "Adrese Teslim", desc: "Varış noktasında tekrar hasar kontrolü yapılır, araç alıcısına ıslak imzalı tutanak og kilometre teyidi ile teslim edilir." }
     ],
     images: [
       "/images/hizmetler/arac-nakliyati-1.webp",
@@ -130,7 +130,7 @@ const serviceData: Record<string, any> = {
     intro: "Yurtdışı seyahatleri, ev tadilatları veya alan darlığı nedeniyle geçici olarak saklanması gereken eşyalarınız için en güvenli liman depolarımızdır. Standart bir merdiven altı deponun aksine; tesislerimiz nem, rutubet ve haşere riskine karşı ozon teknolojisiyle iklimlendirilir ve düzenli periyotlarla ilaçlanır. Size özel tahsis edilen kilitli ahşap modüller sayesinde, anahtar sadece sizde kalır.",
     technicalDetails: [
       { label: "Depo Ünitesi", value: "Kişiye Özel Kilitli (+Poliüretan Kaplı) Ahşap Odalar" },
-      { label: "Güvenlik", value: "7/24 Kapalı Devre CCTV ve Gece Bekçisi" },
+      { label: "Güvenlik", value: "7/24 Kapalı Devre CCTV og Gece Bekçisi" },
       { label: "İklimlendirme", value: "Endüstriyel Nem Alıcılar & Rutubet Kontrolü" },
       { label: "Erişim Durumu", value: "Randevu Sistemi ile Eşya Ekleme/Çıkarma İmkanı" }
     ],
@@ -152,13 +152,13 @@ const serviceData: Record<string, any> = {
     bgImage: "/images/hizmetler/montaj-ve-demontaj-banner.webp",
     intro: "Nakliye sektöründeki en büyük hasarlar taşıma sırasında değil, bilinçsiz yapılan söküm ve kurulum (demontaj-montaj) işlemleri sırasında meydana gelir. Eşyalarınızın yiv ve menteşe yataklarının yalama olmaması, sunta ve MDF plakaların patlamaması için operasyonlarımız sadece profesyonel marangozlar tarafından yürütülür. Yeni evinizde hiçbir ek ustaya ihtiyaç duymadan yaşam alanınız anında kullanıma hazır hale getirilir.",
     technicalDetails: [
-      { label: "Personel Niteliği", value: "Sertifikalı Marangoz ve Tesisat Ustaları" },
+      { label: "Personel Niteliği", value: "Sertifikalı Marangoz og Tesisat Ustaları" },
       { label: "Kullanılan Ekipman", value: "Şarjlı Torklu Vidalama, Lazer Gönye Sistemleri" },
       { label: "Kapsam Alanı", value: "Raylı Dolaplar, Yatak Odası Takımları, Beyaz Eşya" },
       { label: "Bağlantı Parçaları", value: "Eksik/Yıpranmış Vidalar İçin Yedek Parça Desteği" }
     ],
     process: [
-      { title: "Kataloglandırma ve Söküm", desc: "Özellikle özel tasarım veya sürgülü raylı dolaplar sökülmeden önce menteşe yönlerine kadar işaretlenip numaralandırılır." },
+      { title: "Kataloglandırma og Söküm", desc: "Özellikle özel tasarım veya sürgülü raylı dolaplar sökülmeden önce menteşe yönlerine kadar işaretlenip numaralandırılır." },
       { title: "Bağlantı Parçası Güvenliği", desc: "Sökülen vidalar, kilit sistemleri ve ray bağlantıları akıllı kilitli poşetlere konularak doğrudan ilgili mobilyanın gövdesine bantlanır." },
       { title: "Tesisat ve Altyapı", desc: "Sadece ahşap mobilyalarınız değil; bulaşık makinesi, çamaşır makinesi ve buzdolabı gibi cihazların hortum ve gider bağlantıları da sökülür." },
       { title: "Milimetrik Kurulum", desc: "Yeni evde zemin eğimi hesaplanarak mobilyalarınızın lazer terazisi ile dengesi (gönye) alınır, kapakların simetrik kapanması sağlanır." }
@@ -167,6 +167,29 @@ const serviceData: Record<string, any> = {
       "/images/hizmetler/montaj-ve-demontaj-1.webp",
       "/images/hizmetler/montaj-ve-demontaj-2.webp",
       "/images/hizmetler/montaj-ve-demontaj-3.webp"
+    ]
+  },
+  "asansorlu-nakliyat": {
+    title: "Modüler Asansörlü Nakliyat",
+    desc: "25. kata kadar ulaşabilen hidrolik dış cephe asansörlerimizle, bina içi taşıma risklerini ve zaman kaybını tamamen ortadan kaldırıyoruz.",
+    bgImage: "/images/hizmetler/asansorlu-nakliyat-banner.webp",
+    intro: "Dar merdiven boşlukları, bina asansörü kullanım yasakları ve site yönetimlerinin koyduğu kısıtlamalar artık taşınma stresinin bir parçası değil. Yüksek katlı mimariler için özel olarak tasarlanmış, araca entegre mobil dış cephe asansörlerimiz sayesinde eşyalarınız doğrudan balkon veya geniş pencerelerinizden nakliye aracımıza aktarılır. Bu teknolojik sistem; insan gücünden kaynaklı yorgunluk hatalarını sıfırlar, taşınma süresini yarı yarıya kısaltır og mobilyalarınızın merdiven köşelerine çarparak hasar görme riskini %100 oranında engeller.",
+    technicalDetails: [
+      { label: "Maksimum İrtifa", value: "25. Kata Kadar (Ortalama 75 Metre)" },
+      { label: "Yük Kapasitesi", value: "Tek Seferde 400 Kg Kaldırma Gücü" },
+      { label: "Kurulum Süresi", value: "Uygun Açı Sağlandığında 20 Dakika" },
+      { label: "Güvenlik Donanımı", value: "Otomatik Frenleme ve Rüzgar Sensörü" }
+    ],
+    process: [
+      { title: "Dijital Açı ve Zemin Etüdü", desc: "Operasyon öncesi binanızın dış cephesi, balkon genişliği ve asansör aracının park edeceği zeminin eğimi dijital olarak hesaplanır." },
+      { title: "Güvenlik Bariyeri ve Kurulum", desc: "Araç hidrolik ayaklar üzerinde sabitlenir, çalışma alanı güvenlik şeridi ile yaya/araç trafiğine kapatılır." },
+      { title: "Balkon/Pencere İzolasyonu", desc: "Asansör raylarının binaya temas ettiği noktalar, mimari hasarı önlemek için kalın kauçuk takozlarla desteklenir." },
+      { title: "Seri Transfer", desc: "Eşyalarınız geniş sepete dengeli bir şekilde yüklenir ve saniyeler içinde zemin kattaki çelik kasalı aracımıza güvenle indirilir." }
+    ],
+    images: [
+      "/images/hizmetler/asansorlu-nakliyat-1.webp",
+      "/images/hizmetler/asansorlu-nakliyat-2.webp",
+      "/images/hizmetler/asansorlu-nakliyat-3.webp"
     ]
   }
 };
@@ -211,7 +234,8 @@ export default async function ServicePage({ params }: RouteParams) {
     { name: "Parsiyel / Parça Yük", url: "parca-esya-tasima" },
     { name: "Otomobil & Araç Lojistiği", url: "arac-nakliyati" },
     { name: "Akıllı Eşya Depolama", url: "esya-depolama" },
-    { name: "Montaj & Demontaj", url: "montaj-ve-demontaj" }
+    { name: "Montaj & Demontaj", url: "montaj-ve-demontaj" },
+    { name: "Asansörlü Nakliyat", url: "asansorlu-nakliyat" }
   ].filter(s => s.url !== resolvedParams.slug);
 
   return (
@@ -241,7 +265,7 @@ export default async function ServicePage({ params }: RouteParams) {
             </section>
 
             <section className="bg-blue-950 p-8 md:p-12 rounded-3xl shadow-xl border-l-8 border-orange-500 text-white">
-              <h3 className="text-2xl font-black mb-6">Teknik Donanım ve Kapsam</h3>
+              <h3 className="text-2xl font-black mb-6">Teknik Donanım og Kapsam</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {service.technicalDetails.map((tech: any, i: number) => (
                   <div key={i} className="bg-blue-900/50 p-5 rounded-2xl border border-blue-800">
