@@ -13,7 +13,6 @@ interface BlogPost {
   content: string;
 }
 
-// --- TÜM MAKALELERİN ZENGİN İÇERİK VERİTABANI ---
 const blogContentData: Record<string, BlogPost> = {
   "tasinma-rehberi": {
     title: "Ev Taşırken Dikkat Edilmesi Gereken 10 Altın Kural",
@@ -21,7 +20,7 @@ const blogContentData: Record<string, BlogPost> = {
     category: "Rehber",
     date: "12 Mayıs 2026",
     readTime: "4 Dk",
-    bgImage: "/images/blog/banners/tasinma-rehberi-banner.webp", // ÖZEL BANNER
+    bgImage: "/images/blog/banners/tasinma-rehberi-banner.webp", 
     content: `
       <p>Ev taşımak, doğru planlanmadığında hayatın en stresli dönemlerinden birine dönüşebilir. Ancak lojistik süreçlerini bir mühendislik planı gibi adım adım yönetmek, bu süreci tamamen sorunsuz atlatmanızı sağlar. İşte uzman operasyon ekibimizin hazırladığı 10 altın kural:</p>
       
@@ -47,7 +46,7 @@ const blogContentData: Record<string, BlogPost> = {
     category: "Mevzuat",
     date: "05 Mayıs 2026",
     readTime: "3 Dk",
-    bgImage: "/images/blog/banners/nakliyat-sigortasi-banner.webp", // ÖZEL BANNER
+    bgImage: "/images/blog/banners/nakliyat-sigortasi-banner.webp", 
     content: `
       <p>Profesyonel nakliyat lojistiğinde sıfır risk politikası esastır. Ne kadar uzman bir kadroyla çalışırsanız çalışın, otoyol trafiğinde veya mücbir sebeplerde eşyalarınızın güvencede olması gerekir. İşte nakliyat sigortası hakkında bilmeniz gereken yasal detaylar:</p>
       
@@ -67,7 +66,7 @@ const blogContentData: Record<string, BlogPost> = {
     category: "İpuçları",
     date: "28 Nisan 2026",
     readTime: "5 Dk",
-    bgImage: "/images/blog/banners/esya-paketleme-banner.webp", // ÖZEL BANNER
+    bgImage: "/images/blog/banners/esya-paketleme-banner.webp", 
     content: `
       <p>Ev taşırken en çok hasar gören ve kırılan eşyalar mutfak envanterleri ve hassas elektronik cihazlardır. Doğru ambalajlama mühendisliği ile bu riski sıfıra indirmek mümkündür. İşte holding standartlarında paketleme yöntemleri:</p>
       
@@ -84,7 +83,7 @@ const blogContentData: Record<string, BlogPost> = {
     category: "Teknoloji",
     date: "20 Nisan 2026",
     readTime: "4 Dk",
-    bgImage: "/images/blog/banners/asansorlu-nakliyat-banner.webp", // ÖZEL BANNER
+    bgImage: "/images/blog/banners/asansorlu-nakliyat-banner.webp", 
     content: `
       <p>Modüler dış cephe asansörleri, yüksek katlı binalarda taşınma süresini %50 kısaltan muazzam bir teknolojidir. Ancak bu sistemin kurulabilmesi için binanın ve çevrenin belirli fiziksel kriterleri karşılaması gerekir.</p>
       
@@ -104,7 +103,7 @@ const blogContentData: Record<string, BlogPost> = {
     category: "Maliyet",
     date: "15 Nisan 2026",
     readTime: "6 Dk",
-    bgImage: "/images/blog/banners/sehirler-arasi-banner.webp", // ÖZEL BANNER
+    bgImage: "/images/blog/banners/sehirler-arasi-banner.webp", 
     content: `
       <p>Şehirler arası taşımacılık bütçesi hesaplanırken merdiven altı firmaların aksine, kurumsal şirketler belirli matematiksel ve lojistik formüller kullanırlar. Fiyatı belirleyen ana faktörler şunlardır:</p>
       
@@ -124,7 +123,7 @@ const blogContentData: Record<string, BlogPost> = {
     category: "Kurumsal",
     date: "02 Nisan 2026",
     readTime: "5 Dk",
-    bgImage: "/images/blog/banners/ofis-tasima-banner.webp", // ÖZEL BANNER
+    bgImage: "/images/blog/banners/ofis-tasima-banner.webp", 
     content: `
       <p>Kurumsal şirket ve ofis lojistiği, ev taşıma mantığından tamamen farklı bir uzmanlık gerektirir. Burada en büyük risk eşyaların kırılması değil, şirketin operasyonel olarak durması ve ciro kaybı yaşamasıdır.</p>
       
