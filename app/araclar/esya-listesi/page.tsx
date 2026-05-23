@@ -27,20 +27,31 @@ export default function ItemListPage() {
   const handleNext = () => setStep(prev => Math.min(prev + 1, 3));
   const handlePrev = () => setStep(prev => Math.max(prev - 1, 1));
 
-  // FORMU MAİLE GÖNDERME FONKSİYONU (EmailJS, Formspree vb. buraya entegre edilecek)
+  // FORMU KENDİ SUNUCUMUZA GÖNDERME FONKSİYONU
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Kendi oluşturduğumuz API'ye verileri fırlatıyoruz
+      const response = await fetch('/api/iletisim', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Sunucu hatası");
+      }
       
       setIsSubmitting(false);
       setIsSuccess(true);
     } catch (error) {
       console.error("Form gönderim hatası:", error);
       setIsSubmitting(false);
-      alert("Bir hata oluştu, lütfen doğrudan telefonla iletişime geçin.");
+      alert("Sistemsel bir hata oluştu, lütfen formu tekrar deneyin veya doğrudan telefonla bize ulaşın.");
     }
   };
 
