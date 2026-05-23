@@ -11,6 +11,7 @@ export default function Header() {
     <header className="bg-white text-blue-950 shadow-sm sticky top-0 z-50 border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         
+        {/* LOGO */}
         <Link href="/" className="flex items-center gap-3 group relative z-50">
           <div className="relative w-48 h-12 flex items-center transition-transform group-hover:scale-105">
             <Image
@@ -24,6 +25,7 @@ export default function Header() {
           </div>
         </Link>
         
+        {/* MOBİL MENÜ BUTONU */}
         <button 
           className="md:hidden p-2 text-blue-950 hover:text-orange-500 transition-colors relative z-50"
           onClick={() => setIsMobileOpen(!isMobileOpen)}
@@ -40,6 +42,7 @@ export default function Header() {
           )}
         </button>
 
+        {/* MASAÜSTÜ MENÜ */}
         <nav className="hidden md:flex gap-8 font-semibold text-sm items-center">
           <Link href="/" className="hover:text-orange-500 transition-colors">
             Ana Sayfa
@@ -72,6 +75,10 @@ export default function Header() {
             <div className="absolute top-full left-0 bg-white shadow-xl rounded-2xl border border-gray-100 py-3 w-64 opacity-0 invisible group-hover/menu:opacity-100 group-hover/menu:visible transition-all duration-200 z-50 transform origin-top-left scale-95 group-hover/menu:scale-100">
               <Link href="/hizmetler/evden-eve-nakliyat" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors font-bold text-gray-900">
                 Evden Eve Nakliyat
+              </Link>
+              {/* ASANSÖRLÜ NAKLİYAT MASAÜSTÜ MENÜYE EKLENDİ */}
+              <Link href="/hizmetler/asansorlu-nakliyat" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors font-bold text-gray-900">
+                Asansörlü Nakliyat
               </Link>
               <Link href="/hizmetler/sehirler-arasi-tasima" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors font-bold text-gray-900">
                 Şehirler Arası Taşıma
@@ -131,6 +138,7 @@ export default function Header() {
         </nav>
       </div>
 
+      {/* MOBİL MENÜ İÇERİĞİ */}
       <div className={`md:hidden absolute w-full bg-white border-t border-gray-100 shadow-2xl transition-all duration-300 ease-in-out ${isMobileOpen ? 'max-h-[85vh] opacity-100 visible overflow-y-auto' : 'max-h-0 opacity-0 invisible overflow-hidden'}`}>
         <div className="px-4 py-6 space-y-6">
           <Link href="/" onClick={() => setIsMobileOpen(false)} className="block text-lg font-black text-blue-950 hover:text-orange-500">
@@ -149,6 +157,8 @@ export default function Header() {
             <div className="text-xs font-black text-orange-500 uppercase tracking-widest mb-3">Hizmetlerimiz</div>
             <div className="pl-4 border-l-2 border-gray-100 space-y-3">
               <Link href="/hizmetler/evden-eve-nakliyat" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-500">Evden Eve Nakliyat</Link>
+              {/* ASANSÖRLÜ NAKLİYAT MOBİL MENÜYE EKLENDİ */}
+              <Link href="/hizmetler/asansorlu-nakliyat" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-500">Asansörlü Nakliyat</Link>
               <Link href="/hizmetler/sehirler-arasi-tasima" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-500">Şehirler Arası Taşıma</Link>
               <Link href="/hizmetler/ofis-tasima" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-500">Ofis Taşıma</Link>
               <Link href="/hizmetler/parca-esya-tasima" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-500">Parça Eşya Taşıma</Link>
