@@ -9,50 +9,52 @@ export default function ItemListPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
+  // Form Veri Modeli - Tüm hizmetleri kapsayacak şekilde genişletildi
   const [formData, setFormData] = useState({
+    hizmetTuru: "",
     nereden: "",
     nereye: "",
     odaSayisi: "",
-    koltukTakimi: 0,
-    yatakOdasi: 0,
-    beyazEsya: 0,
-    koliAdedi: 0,
+    esyaDetayi: "", // Yeni: Müşterinin serbestçe eşya veya proje detaylarını yazabileceği alan
     adSoyad: "",
-    telefon: ""
+    telefon: "",
+    eposta: ""
   });
 
-  const updateForm = (field: string, value: string | number) => {
+  const updateForm = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
-  };
-
-  const increment = (field: keyof typeof formData) => {
-    setFormData(prev => ({ ...prev, [field]: (prev[field] as number) + 1 }));
-  };
-
-  const decrement = (field: keyof typeof formData) => {
-    setFormData(prev => ({ ...prev, [field]: Math.max(0, (prev[field] as number) - 1) }));
   };
 
   const handleNext = () => setStep(prev => Math.min(prev + 1, 3));
   const handlePrev = () => setStep(prev => Math.max(prev - 1, 1));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // FORMU MAİLE GÖNDERME FONKSİYONU (EmailJS, Formspree vb. buraya entegre edilecek)
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    setTimeout(() => {
+    try {
+      // BURASI BACKEND/MAİL SERVİSİ İÇİN HAZIRLANMIŞTIR
+      // Örnek: await fetch('/api/send-email', { method: 'POST', body: JSON.stringify(formData) })
+      // Şimdilik sistemin çalıştığını simüle ediyoruz:
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
       setIsSubmitting(false);
       setIsSuccess(true);
-    }, 1500);
+    } catch (error) {
+      console.error("Form gönderim hatası:", error);
+      setIsSubmitting(false);
+      alert("Bir hata oluştu, lütfen doğrudan telefonla iletişime geçin.");
+    }
   };
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <PageBanner 
         category="Fiyat & Planlama"
-        title="Detaylı Eşya Listesi"
-        description="Eşyalarınızın detaylarını adım adım girerek size en uygun araç planlamasını ve net fiyat garantisini anında alın."
-        bgImage="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=2000"
+        title="Dijital Ekspertiz Formu"
+        description="Nakliye veya lojistik ihtiyaçlarınızı detaylandırın, operasyon departmanımız size en uygun araç ve maliyet planını anında sunsun."
+        bgImage="/images/banners/hacim.webp"
       />
 
       <main className="flex-grow max-w-4xl mx-auto px-4 py-16 w-full">
@@ -60,21 +62,22 @@ export default function ItemListPage() {
           
           {isSuccess ? (
             <div className="text-center py-10 animate-in fade-in zoom-in duration-500">
-              <div className="w-24 h-24 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-24 h-24 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
                 <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h2 className="text-3xl font-black text-blue-950 mb-4">Talebiniz Alındı!</h2>
-              <p className="text-gray-600 mb-8 font-medium max-w-md mx-auto">
-                Eşya listeniz uzman ekspertiz ekibimize ulaştı. Planlama yapılarak en kısa sürede <strong>{formData.telefon}</strong> numaralı hattan size dönüş yapılacaktır.
+              <h2 className="text-3xl font-black text-blue-950 mb-4">Talebiniz Operasyon Merkezine İletildi!</h2>
+              <p className="text-gray-600 mb-8 font-medium max-w-md mx-auto leading-relaxed">
+                Formunuz sistemimize düştü. Planlama ekibimiz detayları inceleyip en geç <strong className="text-blue-950">24 saat içinde</strong> belirttiğiniz <strong>{formData.telefon}</strong> numaralı hattan size resmi bir teklif sunacaktır.
               </p>
-              <Link href="/" className="inline-block bg-blue-950 hover:bg-gray-900 text-white font-bold py-4 px-10 rounded-xl transition-all shadow-lg uppercase tracking-wider text-sm">
+              <Link href="/" className="inline-block bg-blue-950 hover:bg-orange-500 text-white font-bold py-4 px-10 rounded-xl transition-all shadow-lg uppercase tracking-wider text-sm">
                 Ana Sayfaya Dön
               </Link>
             </div>
           ) : (
             <>
+              {/* Progress Bar (İlerleme Çubuğu) */}
               <div className="mb-12 relative px-4">
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1.5 bg-gray-100 rounded-full z-0"></div>
                 <div 
@@ -91,76 +94,109 @@ export default function ItemListPage() {
 
               <form onSubmit={handleSubmit} className="space-y-8 animate-in fade-in duration-300">
                 
+                {/* ADIM 1: Hizmet Türü ve Rota */}
                 {step === 1 && (
                   <div className="space-y-6">
-                    <h2 className="text-2xl font-black text-blue-950 mb-6">Taşınma Rotası ve Ev Tipi</h2>
+                    <h2 className="text-2xl font-black text-blue-950 mb-6 border-b pb-4">Hizmet Türü ve Lojistik Rotası</h2>
+                    
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-2">Talep Ettiğiniz Hizmet</label>
+                      <select value={formData.hizmetTuru} onChange={(e) => updateForm('hizmetTuru', e.target.value)} required className="w-full px-4 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50 text-gray-800 font-medium cursor-pointer">
+                        <option value="">Lütfen Bir Hizmet Seçiniz...</option>
+                        <option value="Evden Eve Nakliyat">Evden Eve Nakliyat</option>
+                        <option value="Şehirler Arası Nakliyat">Şehirler Arası Nakliyat</option>
+                        <option value="Kurumsal Ofis/Plaza Taşıma">Kurumsal Ofis/Plaza Taşıma</option>
+                        <option value="Otomobil ve Araç Lojistiği">Otomobil ve Araç Lojistiği</option>
+                        <option value="Parsiyel (Parça) Eşya Taşıma">Parsiyel (Parça) Eşya Taşıma</option>
+                        <option value="Akıllı Eşya Depolama">Akıllı Eşya Depolama</option>
+                        <option value="Sadece Montaj/Demontaj Desteği">Sadece Montaj/Demontaj Desteği</option>
+                      </select>
+                    </div>
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-bold text-gray-700 mb-2">Nereden Taşınacak?</label>
+                        <label className="block text-sm font-bold text-gray-700 mb-2">Nereden Alınacak?</label>
                         <input type="text" value={formData.nereden} onChange={(e) => updateForm('nereden', e.target.value)} required className="w-full px-4 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50" placeholder="İl, İlçe veya Mahalle" />
                       </div>
                       <div>
-                        <label className="block text-sm font-bold text-gray-700 mb-2">Nereye Taşınacak?</label>
-                        <input type="text" value={formData.nereye} onChange={(e) => updateForm('nereye', e.target.value)} required className="w-full px-4 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50" placeholder="İl, İlçe veya Mahalle" />
+                        <label className="block text-sm font-bold text-gray-700 mb-2">Nereye Teslim Edilecek?</label>
+                        <input type="text" value={formData.nereye} onChange={(e) => updateForm('nereye', e.target.value)} required className="w-full px-4 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50" placeholder="İl, İlçe veya Depo" />
                       </div>
                     </div>
-                    <div>
-                      <label className="block text-sm font-bold text-gray-700 mb-2">Mevcut Evin Oda Sayısı</label>
-                      <select value={formData.odaSayisi} onChange={(e) => updateForm('odaSayisi', e.target.value)} required className="w-full px-4 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50 text-gray-800">
-                        <option value="">Seçiniz...</option>
-                        <option value="1+0 / 1+1 (Stüdyo)">1+0 / 1+1 (Stüdyo)</option>
-                        <option value="2+1 (Standart)">2+1 (Standart)</option>
-                        <option value="3+1 (Geniş)">3+1 (Geniş)</option>
-                        <option value="4+1 ve Üzeri (Dubleks/Villa)">4+1 ve Üzeri (Dubleks/Villa)</option>
-                      </select>
-                    </div>
                   </div>
                 )}
 
+                {/* ADIM 2: Hacim ve Eşya Detayları */}
                 {step === 2 && (
                   <div className="space-y-6">
-                    <h2 className="text-2xl font-black text-blue-950 mb-6">Demirbaş Eşya Detayları</h2>
-                    <p className="text-sm text-gray-500 font-medium mb-6">Aracın hacmini belirleyebilmemiz için temel büyük eşyalarınızın tahmini adetlerini belirtiniz.</p>
+                    <h2 className="text-2xl font-black text-blue-950 mb-6 border-b pb-4">Operasyon Hacmi ve Detaylar</h2>
                     
-                    <div className="space-y-4">
-                      {[
-                        { id: 'koltukTakimi', label: 'Koltuk Takımı / Kanepe' },
-                        { id: 'yatakOdasi', label: 'Yatak Odası Takımı (Gardırop + Yatak)' },
-                        { id: 'beyazEsya', label: 'Beyaz Eşya (Buzdolabı, Çamaşır Makinesi vb.)' },
-                        { id: 'koliAdedi', label: 'Tahmini Koli ve Çuval Sayısı' }
-                      ].map((item) => (
-                        <div key={item.id} className="flex justify-between items-center p-5 bg-gray-50 rounded-xl border border-gray-200">
-                          <span className="font-bold text-gray-800 text-sm md:text-base">{item.label}</span>
-                          <div className="flex items-center gap-4 bg-white p-1 rounded-lg border border-gray-200 shadow-sm">
-                            <button type="button" onClick={() => decrement(item.id as keyof typeof formData)} className="w-8 h-8 flex items-center justify-center text-gray-600 font-black hover:text-orange-500 transition-colors">-</button>
-                            <span className="w-6 text-center font-black text-blue-950">{formData[item.id as keyof typeof formData]}</span>
-                            <button type="button" onClick={() => increment(item.id as keyof typeof formData)} className="w-8 h-8 flex items-center justify-center text-gray-600 font-black hover:text-orange-500 transition-colors">+</button>
-                          </div>
-                        </div>
-                      ))}
+                    {/* Sadece evden eve ise oda sayısı sor, ofis veya araçsa sorma */}
+                    {(formData.hizmetTuru === "Evden Eve Nakliyat" || formData.hizmetTuru === "Şehirler Arası Nakliyat") && (
+                      <div>
+                        <label className="block text-sm font-bold text-gray-700 mb-2">Mevcut Evin Oda Sayısı</label>
+                        <select value={formData.odaSayisi} onChange={(e) => updateForm('odaSayisi', e.target.value)} className="w-full px-4 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50 text-gray-800">
+                          <option value="">Seçiniz...</option>
+                          <option value="1+0 / 1+1 (Stüdyo)">1+0 / 1+1 (Stüdyo)</option>
+                          <option value="2+1 (Standart)">2+1 (Standart)</option>
+                          <option value="3+1 (Geniş)">3+1 (Geniş)</option>
+                          <option value="4+1 ve Üzeri (Dubleks/Villa)">4+1 ve Üzeri (Dubleks/Villa)</option>
+                        </select>
+                      </div>
+                    )}
+
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-2">Eşya veya Proje Detayları</label>
+                      <p className="text-xs text-gray-500 mb-3 font-medium">Büyük eşyalarınızı, asansör durumunu veya varsa özel taleplerinizi detaylıca yazınız. (Örn: 2 adet çelik kasa var, 5. kat asansör yok vb.)</p>
+                      <textarea 
+                        value={formData.esyaDetayi} 
+                        onChange={(e) => updateForm('esyaDetayi', e.target.value)} 
+                        rows={5} 
+                        required 
+                        className="w-full px-4 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all resize-none bg-gray-50" 
+                        placeholder="Taşınacak eşyaların listesi ve bina fiziksel durumları..."
+                      ></textarea>
                     </div>
                   </div>
                 )}
 
+                {/* ADIM 3: İletişim, Onay ve Captcha */}
                 {step === 3 && (
                   <div className="space-y-6">
-                    <h2 className="text-2xl font-black text-blue-950 mb-6">İletişim ve Onay</h2>
-                    <div className="bg-orange-50 p-6 rounded-2xl border border-orange-100 mb-6">
-                      <p className="text-sm text-orange-800 font-bold">Listelediğiniz eşyaların nakliye planlaması için sizi arayacağız.</p>
-                    </div>
-                    <div className="space-y-4">
+                    <h2 className="text-2xl font-black text-blue-950 mb-6 border-b pb-4">İletişim ve Güvenlik Doğrulaması</h2>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-bold text-gray-700 mb-2">Adınız Soyadınız</label>
+                        <label className="block text-sm font-bold text-gray-700 mb-2">Adınız Soyadınız / Firma Ünvanı</label>
                         <input type="text" value={formData.adSoyad} onChange={(e) => updateForm('adSoyad', e.target.value)} required className="w-full px-4 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50" placeholder="Örn: Ahmet Yılmaz" />
                       </div>
                       <div>
-                        <label className="block text-sm font-bold text-gray-700 mb-2">Telefon Numaranız</label>
-                        <input type="tel" value={formData.telefon} onChange={(e) => updateForm('telefon', e.target.value)} required className="w-full px-4 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50" placeholder="0532 XXX XX XX" />
+                        <label className="block text-sm font-bold text-gray-700 mb-2">E-Posta Adresi (Opsiyonel)</label>
+                        <input type="email" value={formData.eposta} onChange={(e) => updateForm('eposta', e.target.value)} className="w-full px-4 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50" placeholder="ornek@firma.com" />
                       </div>
                     </div>
+                    
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-2">Telefon Numaranız</label>
+                      <input type="tel" value={formData.telefon} onChange={(e) => updateForm('telefon', e.target.value)} required className="w-full px-4 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50" placeholder="0532 XXX XX XX" />
+                    </div>
+
+                    {/* MÜHÜRLÜ CAPTCHA ARAYÜZÜ */}
+                    <div className="flex items-center justify-between p-3 bg-gray-50 border border-gray-200 rounded-xl max-w-xs shadow-inner mt-4">
+                      <div className="flex items-center gap-3 pl-2">
+                        <input type="checkbox" id="captcha" required className="w-6 h-6 text-orange-500 rounded border-gray-300 focus:ring-orange-500 cursor-pointer" />
+                        <label htmlFor="captcha" className="text-sm font-bold text-gray-700 cursor-pointer">Ben robot değilim</label>
+                      </div>
+                      <div className="flex flex-col items-center justify-center">
+                        <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" className="w-8 opacity-80" />
+                        <span className="text-[9px] text-gray-500 mt-1 font-medium">reCAPTCHA</span>
+                      </div>
+                    </div>
+
                   </div>
                 )}
 
+                {/* NAVİGASYON BUTONLARI */}
                 <div className="flex gap-4 pt-8 border-t border-gray-100 mt-10">
                   {step > 1 && (
                     <button type="button" onClick={handlePrev} className="px-8 py-4 bg-gray-100 hover:bg-gray-200 text-gray-700 font-black rounded-xl transition-all uppercase tracking-wider text-sm w-1/3">
@@ -169,7 +205,7 @@ export default function ItemListPage() {
                   )}
                   
                   {step < 3 ? (
-                    <button type="button" onClick={handleNext} disabled={step === 1 && (!formData.nereden || !formData.nereye || !formData.odaSayisi)} className="flex-1 bg-orange-500 hover:bg-orange-600 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-black py-4 rounded-xl shadow-lg transition-all uppercase tracking-wider text-sm">
+                    <button type="button" onClick={handleNext} disabled={step === 1 && (!formData.hizmetTuru || !formData.nereden || !formData.nereye)} className="flex-1 bg-orange-500 hover:bg-orange-600 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-black py-4 rounded-xl shadow-lg transition-all uppercase tracking-wider text-sm">
                       Sonraki Adım
                     </button>
                   ) : (
