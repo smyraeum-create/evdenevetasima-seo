@@ -47,6 +47,13 @@ const BoxIcon = () => (
   </svg>
 );
 
+const MapPinIcon = () => (
+  <svg className="w-5 h-5 text-orange-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.242-4.243a8 8 0 1111.314 0z" />
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+  </svg>
+);
+
 export async function generateStaticParams() {
   return Object.keys(districtNames).map((ilce) => ({
     ilce: ilce,
@@ -73,10 +80,17 @@ export default async function DistrictPage({ params }: RouteParams) {
 
   if (!currentIlce) notFound();
 
-  const otherDistricts = Object.entries(districtNames)
-    .filter(([key]) => key !== ilce)
-    .slice(0, 6)
-    .map(([key, value]) => ({ slug: key, name: value }));
+  const allEntries = Object.entries(districtNames);
+  const currentIndex = allEntries.findIndex(([key]) => key === ilce);
+  
+  const otherDistricts = [];
+  for (let i = 1; i <= 6; i++) {
+    const targetIndex = (currentIndex + i) % allEntries.length;
+    otherDistricts.push({
+      slug: allEntries[targetIndex][0],
+      name: allEntries[targetIndex][1]
+    });
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
@@ -202,8 +216,9 @@ export default async function DistrictPage({ params }: RouteParams) {
             <ul className="space-y-3">
               {otherDistricts.map((d, i) => (
                 <li key={i}>
-                  <Link href={`/istanbul/${d.slug}`} className="flex items-center gap-3 p-2 rounded-xl text-gray-600 hover:bg-gray-50 hover:text-orange-500 font-medium transition-colors border border-transparent hover:border-gray-100 text-sm">
-                    <span className="text-orange-500">📍</span> {d.name} Nakliyat
+                  <Link href={`/istanbul/${d.slug}`} className="flex items-center gap-3 p-2 rounded-xl text-gray-600 hover:bg-gray-50 hover:text-orange-500 font-medium transition-colors border border-transparent hover:border-gray-100 text-sm group">
+                    <MapPinIcon />
+                    <span className="group-hover:translate-x-1 transition-transform">{d.name} Nakliyat</span>
                   </Link>
                 </li>
               ))}
