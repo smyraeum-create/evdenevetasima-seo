@@ -24,14 +24,14 @@ export default function Footer() {
                 Evden Eve Taşıma
               </span>
             </Link>
-            <p className="text-sm leading-relaxed text-gray-400">
-              İstanbul'dan Türkiye'nin dört bir yanına sigortalı, asansörlü ve profesyonel nakliyat çözümleri sunuyoruz. Eşyalarınız uzman kadromuzla her zaman güvende.
+            <p className="text-sm leading-relaxed text-gray-400 font-medium">
+              İstanbul&apos;dan Türkiye&apos;nin dört bir yanına sigortalı, asansörlü ve profesyonel nakliyat çözümleri sunuyoruz. Eşyalarınız uzman kadromuzla her zaman güvende.
             </p>
           </div>
 
           <div>
             <h3 className="text-lg font-bold text-white mb-6 border-b border-gray-700 pb-2 inline-block">Kurumsal</h3>
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-3 text-sm font-medium">
               <li><Link href="/hakkimizda" className="hover:text-orange-400 transition-colors flex items-center gap-2"><span className="text-orange-500 text-xs">▸</span> Hakkımızda</Link></li>
               <li><Link href="/iletisim" className="hover:text-orange-400 transition-colors flex items-center gap-2"><span className="text-orange-500 text-xs">▸</span> İletişim</Link></li>
               <li><Link href="/nakliyat-sozlesmesi" className="hover:text-orange-400 transition-colors flex items-center gap-2"><span className="text-orange-500 text-xs">▸</span> Nakliyat Sözleşmesi</Link></li>
@@ -42,7 +42,7 @@ export default function Footer() {
 
           <div>
             <h3 className="text-lg font-bold text-white mb-6 border-b border-gray-700 pb-2 inline-block">Hizmetlerimiz</h3>
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-3 text-sm font-medium">
               <li><Link href="/hizmetler/evden-eve-nakliyat" className="hover:text-orange-400 transition-colors flex items-center gap-2"><span className="text-orange-500 text-xs">▸</span> Evden Eve Nakliyat</Link></li>
               <li><Link href="/hizmetler/sehirler-arasi-tasima" className="hover:text-orange-400 transition-colors flex items-center gap-2"><span className="text-orange-500 text-xs">▸</span> Şehirler Arası Taşıma</Link></li>
               <li><Link href="/hizmetler/ofis-tasima" className="hover:text-orange-400 transition-colors flex items-center gap-2"><span className="text-orange-500 text-xs">▸</span> Ofis Taşıma</Link></li>
@@ -53,7 +53,7 @@ export default function Footer() {
 
           <div>
             <h3 className="text-lg font-bold text-white mb-6 border-b border-gray-700 pb-2 inline-block">İletişim</h3>
-            <div className="space-y-4 text-sm">
+            <div className="space-y-4 text-sm font-medium">
               <p className="flex items-start gap-3 leading-relaxed">
                 <span className="text-orange-500 mt-0.5 text-lg">📍</span>
                 <span>Küçükbakkalköy Mh. Kayışdağı Cd. Ali Ay Sk.<br/>No: 3/1 Orkide Apt. Ataşehir - İSTANBUL</span>

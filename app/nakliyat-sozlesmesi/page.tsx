@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import PageBanner from "../components/PageBanner";
 
 export const metadata: Metadata = {
   title: "Resmi Nakliyat Sözleşmesi ve Taşıma Esasları | Evden Eve Taşıma",
@@ -7,29 +8,17 @@ export const metadata: Metadata = {
 
 export default function ContractPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50 pb-20">
+    <div className="flex flex-col min-h-screen bg-gray-50">
       
-      {/* Kurumsal Sayfa Banner Alanı (Hero) */}
-      <section className="relative bg-blue-950 text-white py-16 md:py-24 border-b-4 border-orange-500">
-        <div className="absolute inset-0 overflow-hidden opacity-10">
-          <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=2000')] bg-cover bg-center"></div>
-        </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
-          <span className="bg-orange-500 text-white text-xs font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-4 inline-block">
-            Yasal Mevzuat ve Güvence
-          </span>
-          <h1 className="text-3xl md:text-5xl font-black mt-2 tracking-tight uppercase">
-            Resmi Nakliyat Sözleşmesi
-          </h1>
-          <p className="mt-4 text-blue-200 text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
-            Tüm taşımacılık operasyonlarımız yasal haklarınızı koruyan şeffaf ve hukuki maddelerle güvence altındadır.
-          </p>
-        </div>
-      </section>
+      <PageBanner 
+        category="Yasal Mevzuat ve Güvence"
+        title="Resmi Nakliyat Sözleşmesi"
+        description="Tüm taşımacılık operasyonlarımız yasal haklarınızı koruyan şeffaf ve hukuki maddelerle güvence altındadır."
+        bgImage="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=2000" 
+      />
 
-      {/* Sözleşme İçerik Alanı */}
-      <main className="max-w-4xl mx-auto px-4 -mt-8 md:-mt-12 relative z-20 w-full">
-        <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
+      <main className="flex-grow max-w-4xl mx-auto px-4 py-12 w-full">
+        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
           
           <div className="bg-gray-900 text-white p-6 text-center text-xs md:text-sm font-bold tracking-wider uppercase">
             Evden Eve Taşıma ve Hizmet Esasları Standart Sözleşme Metni
@@ -37,7 +26,6 @@ export default function ContractPage() {
 
           <div className="p-6 md:p-12 space-y-10">
             
-            {/* 1. Taraflar Kısmı */}
             <section className="space-y-4">
               <h2 className="text-xl font-black text-blue-950 border-b pb-2 flex items-center gap-2">
                 <span className="text-orange-500">1.</span> TARAFLAR
@@ -58,7 +46,6 @@ export default function ContractPage() {
               </div>
             </section>
 
-            {/* 2. Taşıma Bilgileri */}
             <section className="space-y-4">
               <h2 className="text-xl font-black text-blue-950 border-b pb-2 flex items-center gap-2">
                 <span className="text-orange-500">2.</span> TAŞIMA BİLGİLERİ VE DETAYLARI
@@ -82,7 +69,6 @@ export default function ContractPage() {
               </div>
             </section>
 
-            {/* 3. Ücret ve Ödeme Şartları */}
             <section className="space-y-4">
               <h2 className="text-xl font-black text-blue-950 border-b pb-2 flex items-center gap-2">
                 <span className="text-orange-500">3.</span> ÜCRET VE ÖDEME ŞARTLARI
@@ -112,7 +98,6 @@ export default function ContractPage() {
               </div>
             </section>
 
-            {/* 4. Verilecek Ek Hizmetler */}
             <section className="space-y-4">
               <h2 className="text-xl font-black text-blue-950 border-b pb-2 flex items-center gap-2">
                 <span className="text-orange-500">4.</span> VERİLECEK EK HİZMETLER
@@ -135,7 +120,6 @@ export default function ContractPage() {
               </div>
             </section>
 
-            {/* 5. Sözleşme Şartları */}
             <section className="space-y-4">
               <h2 className="text-xl font-black text-blue-950 border-b pb-2 flex items-center gap-2">
                 <span className="text-orange-500">5.</span> SÖZLEŞME ŞARTLARI VE YÜKÜMLÜLÜKLER
@@ -173,7 +157,6 @@ export default function ContractPage() {
               </div>
             </section>
 
-            {/* İmzalar Bandı */}
             <div className="border-t pt-8 text-center text-xs text-gray-400 italic">
               * İşbu sözleşme metni bilgilendirme amaçlı olup, tarafların serbest iradeleriyle 2 (iki) nüsha olarak tanzim edilerek asıl taşınma gününde resmiyet kazanır.
             </div>
