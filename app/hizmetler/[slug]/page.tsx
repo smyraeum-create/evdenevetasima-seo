@@ -1,3 +1,12 @@
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import PageBanner from "../../components/PageBanner";
+
+interface RouteParams {
+  params: Promise<{ slug: string }>;
+}
+
 const serviceData: Record<string, any> = {
   "evden-eve-nakliyat": {
     title: "Evden Eve Nakliyat",
@@ -161,3 +170,150 @@ const serviceData: Record<string, any> = {
     ]
   }
 };
+
+const TechIcon = () => (
+  <svg className="w-8 h-8 text-blue-950" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+  </svg>
+);
+
+const ChevronIcon = () => (
+  <svg className="w-5 h-5 text-orange-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+  </svg>
+);
+
+export async function generateStaticParams() {
+  const allSlugs = Object.keys(serviceData);
+  return allSlugs.map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({ params }: RouteParams): Promise<Metadata> {
+  const resolvedParams = await params;
+  const service = serviceData[resolvedParams.slug];
+  
+  return {
+    title: service ? `${service.title} | Profesyonel Nakliyat Lojistiği` : "Hizmet Bulunamadı",
+    description: service ? service.desc : "Aradığınız hizmet sayfamız bulunmamaktadır.",
+  };
+}
+
+export default async function ServicePage({ params }: RouteParams) {
+  const resolvedParams = await params;
+  const service = serviceData[resolvedParams.slug];
+
+  if (!service) notFound();
+
+  const allServices = [
+    { name: "Evden Eve Nakliyat", url: "evden-eve-nakliyat" },
+    { name: "Şehirler Arası Taşıma", url: "sehirler-arasi-tasima" },
+    { name: "Kurumsal Ofis Taşıma", url: "ofis-tasima" },
+    { name: "Parsiyel / Parça Yük", url: "parca-esya-tasima" },
+    { name: "Otomobil & Araç Lojistiği", url: "arac-nakliyati" },
+    { name: "Akıllı Eşya Depolama", url: "esya-depolama" },
+    { name: "Montaj & Demontaj", url: "montaj-ve-demontaj" }
+  ].filter(s => s.url !== resolvedParams.slug);
+
+  return (
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      <PageBanner 
+        category="Kurumsal Hizmet Standartları"
+        title={service.title}
+        description={service.desc}
+        bgImage={service.bgImage}
+      />
+
+      <main className="flex-grow w-full py-16">
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-12">
+          
+          <div className="lg:col-span-2 space-y-12">
+            
+            <section className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100">
+              <div className="flex items-center gap-5 mb-8 border-b border-gray-100 pb-6">
+                <div className="bg-orange-50 p-4 rounded-2xl">
+                  <TechIcon />
+                </div>
+                <h2 className="text-3xl font-black text-blue-950 tracking-tight">Operasyon Mühendisliği</h2>
+              </div>
+              <p className="text-gray-700 leading-relaxed text-lg font-medium">
+                {service.intro}
+              </p>
+            </section>
+
+            <section className="bg-blue-950 p-8 md:p-12 rounded-3xl shadow-xl border-l-8 border-orange-500 text-white">
+              <h3 className="text-2xl font-black mb-6">Teknik Donanım ve Kapsam</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {service.technicalDetails.map((tech: any, i: number) => (
+                  <div key={i} className="bg-blue-900/50 p-5 rounded-2xl border border-blue-800">
+                    <span className="block text-orange-400 text-xs font-black uppercase tracking-widest mb-1">{tech.label}</span>
+                    <span className="block text-blue-50 font-semibold">{tech.value}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section>
+              <h3 className="text-2xl font-black text-blue-950 mb-6">Saha Operasyonundan Kareler</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {service.images.map((img: string, i: number) => (
+                  <div key={i} className="relative h-56 rounded-2xl overflow-hidden shadow-md group">
+                    <div className="absolute inset-0 bg-blue-950 opacity-0 group-hover:opacity-20 transition-opacity z-10"></div>
+                    <img src={img} alt={`${service.title} Operasyon ${i+1}`} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100">
+              <h3 className="text-2xl font-black text-blue-950 mb-8 border-b border-gray-100 pb-4">Standart İş Akış Süreci</h3>
+              <div className="space-y-8 relative before:absolute before:inset-0 before:ml-6 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-200 before:to-transparent">
+                {service.process.map((step: any, i: number) => (
+                  <div key={i} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-full border-4 border-white bg-orange-500 text-white font-black shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-md z-10">
+                      {i + 1}
+                    </div>
+                    <div className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-6 rounded-2xl bg-gray-50 border border-gray-100 shadow-sm transition-all hover:shadow-md">
+                      <h4 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h4>
+                      <p className="text-gray-600 font-medium text-sm leading-relaxed">{step.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+          </div>
+
+          <div className="space-y-8">
+            <div className="bg-blue-950 text-white p-8 rounded-3xl shadow-xl border-b-4 border-orange-500 sticky top-24">
+              <h3 className="text-xl font-black mb-4">Lojistik Planlama Departmanı</h3>
+              <p className="text-sm text-blue-200 mb-6 font-medium leading-relaxed">
+                Bu operasyon için araç filomuzun müsaitlik durumunu sorgulayın ve anında maliyet analizi talep edin.
+              </p>
+              <a href="tel:+905322830628" className="block text-center bg-orange-500 hover:bg-orange-600 text-white font-black py-4 rounded-xl transition-all shadow-lg uppercase tracking-wider text-sm mb-4">
+                0532 283 06 28
+              </a>
+              <Link href="/iletisim" className="block text-center bg-transparent border border-blue-800 hover:bg-blue-900 text-white font-black py-4 rounded-xl transition-all uppercase tracking-wider text-sm">
+                Dijital Ekspertiz Formu
+              </Link>
+            </div>
+
+            <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100">
+              <h3 className="text-lg font-black text-blue-950 mb-6 border-b pb-2">Kurumsal Lojistik Ağı</h3>
+              <ul className="space-y-3">
+                {allServices.map((s, i) => (
+                  <li key={i}>
+                    <Link href={`/hizmetler/${s.url}`} className="flex items-center gap-3 p-2 rounded-xl text-gray-600 hover:bg-gray-50 hover:text-orange-500 font-medium transition-colors border border-transparent hover:border-gray-100 group">
+                      <ChevronIcon />
+                      <span className="group-hover:translate-x-1 transition-transform">{s.name}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  );
+}
