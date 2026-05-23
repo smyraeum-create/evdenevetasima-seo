@@ -3,11 +3,9 @@ import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
   try {
-    // 1. Formdan gelen verileri yakalıyoruz
     const body = await request.json();
     const { hizmetTuru, nereden, nereye, odaSayisi, esyaDetayi, adSoyad, telefon, eposta } = body;
 
-    // 2. HostGator SMTP Bağlantı Ayarları (Senin yazdığın doğru ayarlar)
     const transporter = nodemailer.createTransport({
       host: "gator2105.hostgator.com",
       port: 465,
@@ -21,7 +19,6 @@ export async function POST(request: Request) {
       }
     });
 
-    // 3. Sana Gelecek E-Postanın Tasarımı
     const mailOptions = {
       from: `"Evden Eve Sistem" <info@evdenevetasima.org>`,
       to: "info@evdenevetasima.org",
@@ -54,11 +51,9 @@ export async function POST(request: Request) {
     // 4. Maili Gönder
     await transporter.sendMail(mailOptions);
 
-    // 5. Başarı Yanıtı Döndür (Ekranda yeşil tik çıkmasını sağlayan yer)
     return NextResponse.json({ message: 'E-posta başarıyla gönderildi.' }, { status: 200 });
 
   } catch (error) {
-    // 6. Hata Yanıtı Döndür
     console.error('Mail gönderme hatası:', error);
     return NextResponse.json({ message: 'E-posta gönderilirken bir hata oluştu.' }, { status: 500 });
   }
