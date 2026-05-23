@@ -22,6 +22,31 @@ const districtNames: Record<string, string> = {
   tuzla: "Tuzla", umraniye: "Ümraniye", uskudar: "Üsküdar"
 };
 
+const TechIcon = () => (
+  <svg className="w-8 h-8 text-blue-950" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.242-4.243a8 8 0 1111.314 0z" />
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+  </svg>
+);
+
+const ShieldIcon = () => (
+  <svg className="w-12 h-12 text-blue-950 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+  </svg>
+);
+
+const CraneIcon = () => (
+  <svg className="w-12 h-12 text-blue-950 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+  </svg>
+);
+
+const BoxIcon = () => (
+  <svg className="w-12 h-12 text-blue-950 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+  </svg>
+);
+
 export async function generateStaticParams() {
   return Object.keys(districtNames).map((ilce) => ({
     ilce: ilce,
@@ -33,14 +58,12 @@ export async function generateMetadata({ params }: RouteParams): Promise<Metadat
   const currentIlce = districtNames[ilce];
 
   if (!currentIlce) {
-    return {
-      title: "Sayfa Bulunamadı",
-    };
+    return { title: "Bölge Bulunamadı" };
   }
 
   return {
-    title: `${currentIlce} Evden Eve Nakliyat | Profesyonel Taşıma`,
-    description: `${currentIlce} bölgesinde sigortalı, asansörlü ve marangozlu evden eve nakliyat hizmetleri. Güvenilir taşımacılık için hemen ücretsiz fiyat teklifi alın.`,
+    title: `${currentIlce} Evden Eve Nakliyat | Lojistik ve Taşıma Operasyonları`,
+    description: `${currentIlce} bölgesinin mimari ve trafik dinamiklerine uygun araç filomuzla sigortalı, asansörlü ve profesyonel ev/ofis taşıma hizmetleri.`,
   };
 }
 
@@ -48,35 +71,7 @@ export default async function DistrictPage({ params }: RouteParams) {
   const { ilce } = await params;
   const currentIlce = districtNames[ilce];
 
-  if (!currentIlce) {
-    notFound();
-  }
-
-  const faqs = [
-    {
-      q: `${currentIlce} evden eve nakliyat fiyatları ne kadar?`,
-      a: `${currentIlce} nakliye fiyatları taşınacak eşyaların hacmi, oda sayısı, bulunulan katlar ve asansör kurulum durumuna göre değişiklik göstermektedir. Net fiyat için lütfen bizi arayın.`,
-    },
-    {
-      q: `${currentIlce} bölgesinde asansörlü nakliyat var mı?`,
-      a: "Evet, tüm yüksek katlı binalarda eşyalarınızın zarar görmemesi amacıyla modüler asansörlü taşımacılık sistemlerimizi devreye alıyoruz.",
-    },
-    {
-      q: "Eşyalar taşıma sırasında sigortalanıyor mu?",
-      a: "Kesinlikle. Taşıma sürecinin başından sonuna kadar tüm eşyalarınız oluşabilecek hasarlara karşı tam kapsamlı nakliyat sigortası ile güvence altına alınır.",
-    },
-    {
-      q: "Şehirler arası nakliyat hizmetiniz var mı?",
-      a: `Evet, ${currentIlce} çıkışlı olmak üzere Türkiye&apos;nin 81 iline kapalı kasa nakliye araçlarımızla sigortalı şehirler arası taşımacılık hizmeti sunuyoruz.`,
-    }
-  ];
-
-  const localProcess = [
-    { title: "Bölgesel Ekspertiz", desc: `${currentIlce} bölgesindeki yoğunluk ve bina yapılarına uygun araç ve personel planlaması yapılır.` },
-    { title: "Ambalajlama & Demontaj", desc: "Eşyalarınız sıfır ambalaj malzemeleriyle paketlenir, mobilyalarınız marangozlarımızca sökülür." },
-    { title: "Lojistik & Transfer", desc: "Geniş filomuzdan seçilen çelik kasalı araçlarla eşyalarınız sarsıntısız rotada taşınır." },
-    { title: "Kurulum & Teslimat", desc: "Yeni adreste tüm mobilya ve beyaz eşyalarınız monte edilerek anahtar teslim sunulur." }
-  ];
+  if (!currentIlce) notFound();
 
   const otherDistricts = Object.entries(districtNames)
     .filter(([key]) => key !== ilce)
@@ -86,58 +81,67 @@ export default async function DistrictPage({ params }: RouteParams) {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <PageBanner 
-        category="İstanbul Bölge Servisi"
+        category="Bölgesel Lojistik Üssü"
         title={`${currentIlce} Evden Eve Nakliyat`}
-        description={`${currentIlce} ilçesinde profesyonel, sigortalı, asansörlü ve anahtar teslim nakliye çözümleri.`}
-        bgImage="https://images.unsplash.com/photo-1519999482648-25049ddd37b1?q=80&w=2000"
+        description={`${currentIlce} bölgesi için özel olarak planlanmış araç filomuz, mobil asansör sistemlerimiz ve kadrolu uzman ekiplerimizle sıfır riskli taşımacılık.`}
+        bgImage={`/images/ilceler/${ilce}.webp`}
       />
 
       <main className="flex-grow max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-3 gap-12 w-full">
         
         <div className="lg:col-span-2 space-y-12">
           
-          <section className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-gray-100">
-            <h2 className="text-2xl font-black text-blue-950 mb-6">
-              {currentIlce}&apos;de Güvenilir ve Sigortalı Taşımacılık
-            </h2>
-            <div className="text-gray-600 space-y-4 leading-relaxed font-medium">
+          <section className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100">
+            <div className="flex items-center gap-5 mb-8 border-b border-gray-100 pb-6">
+              <div className="bg-orange-50 p-4 rounded-2xl">
+                <TechIcon />
+              </div>
+              <h2 className="text-3xl font-black text-blue-950 tracking-tight">{currentIlce} Operasyon Dinamikleri</h2>
+            </div>
+            
+            <div className="space-y-6 text-gray-700 leading-relaxed text-lg font-medium">
               <p>
-                <strong>Evden Eve Taşıma</strong> olarak, {currentIlce} sınırları içerisindeki tüm taşınma ihtiyaçlarınızda uzman kadromuz ve modern araç filomuzla hizmetinizdeyiz. Ev, ofis veya parça eşyalarınızı eski adresinizden titizlikle sökerek yeni adresinizde kurulum dahil olacak şekilde teslim ediyoruz.
+                İstanbul&apos;un en kritik lojistik noktalarından biri olan <strong>{currentIlce}</strong> bölgesinde, standart nakliye kalıplarını tamamen yıkıyoruz. Bu bölgenin kendine has dar sokak mimarisi, yoğun trafik saatleri ve yeni nesil yüksek katlı site kuralları, sıradan bir taşımacılık anlayışıyla aşılamaz. Biz, operasyonlarimizi tam olarak bu dinamiklere göre mühendislik hassasiyetiyle planlıyoruz.
               </p>
               <p>
-                Sektör lideri vizyonumuzla, taşıma operasyonunun her aşamasında %100 müşteri memnuniyeti hedefliyoruz. Mobilyalarınız marangozlarımız tarafından demonte edilir, kalın ambalaj malzemeleriyle sarılır ve sıfır riskle taşınır. {currentIlce} ilçesinin dar sokak mimarisine ve site kurallarına hakim ekiplerimizle süreç tamamen sorunsuz ilerler.
+                Gerek sahil şeridindeki yalı/villa tipi yapılar, gerekse iç kesimlerdeki yüksek katlı rezidanslar için filomuzda farklı dingil mesafelerine sahip <strong>özel çelik kasalı araçlar</strong> ve 25. kata kadar ulaşabilen <strong>modüler dış cephe asansörleri</strong> hazır bekletilmektedir. Eşyalarınızın {currentIlce} sınırları içindeki veya dışındaki transferi, 3 katmanlı endüstriyel ambalajlama ve sarsıntı önleyici sistemlerimizle %100 güvence altına alınır.
               </p>
             </div>
           </section>
 
           <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 text-center transform transition-transform hover:-translate-y-1">
-              <div className="text-4xl mb-4">🛡️</div>
-              <h3 className="font-bold text-blue-950 mb-2">Tam Sigorta</h3>
-              <p className="text-xs text-gray-500 leading-relaxed font-medium">Taşıma esnasında tüm eşyalarınız maddi güvence altındadır.</p>
+            <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 text-center transform transition-transform hover:-translate-y-1">
+              <ShieldIcon />
+              <h3 className="font-bold text-blue-950 mb-2">Tam Sigorta Güvencesi</h3>
+              <p className="text-xs text-gray-500 leading-relaxed font-medium">Taşıma esnasında tüm finansal ve fiziksel envanteriniz tam kapsamlı emtia poliçesiyle maddi koruma altındadır.</p>
             </div>
-            <div className="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 text-center transform transition-transform hover:-translate-y-1">
-              <div className="text-4xl mb-4">🏗️</div>
-              <h3 className="font-bold text-blue-950 mb-2">Asansörlü Taşıma</h3>
-              <p className="text-xs text-gray-500 leading-relaxed font-medium">Yüksek katlara modüler dış cephe asansörleri ile hızlı transfer.</p>
+            <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 text-center transform transition-transform hover:-translate-y-1">
+              <CraneIcon />
+              <h3 className="font-bold text-blue-950 mb-2">Modüler Asansör</h3>
+              <p className="text-xs text-gray-500 leading-relaxed font-medium">Yüksek katlı mimari yapılara özel, dış cepheye kurulan mobil hidrolik asansör sistemleri ile hızlı transfer.</p>
             </div>
-            <div className="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 text-center transform transition-transform hover:-translate-y-1">
-              <div className="text-4xl mb-4">📦</div>
-              <h3 className="font-bold text-blue-950 mb-2">Özel Paketleme</h3>
-              <p className="text-xs text-gray-500 leading-relaxed font-medium">Hijyenik, darbe emici birinci sınıf ambalajlama materyalleri.</p>
+            <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 text-center transform transition-transform hover:-translate-y-1">
+              <BoxIcon />
+              <h3 className="font-bold text-blue-950 mb-2">Endüstriyel Ambalaj</h3>
+              <p className="text-xs text-gray-500 leading-relaxed font-medium">Toz, nem ve mukavemete karşı dayanıklı, 5 katmanlı kraft havalı naylonlar ve şok emici özel materyaller.</p>
             </div>
           </section>
 
-          <section className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-gray-100">
-            <h3 className="text-2xl font-black text-blue-950 mb-8 border-b border-gray-100 pb-4">Taşınma Süreci Nasıl İşler?</h3>
-            <div className="space-y-8">
-              {localProcess.map((step, i) => (
-                <div key={i} className="flex gap-4">
-                  <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-950 flex items-center justify-center font-black flex-shrink-0 text-xl border border-blue-100 shadow-sm">
+          <section className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100">
+            <h3 className="text-2xl font-black text-blue-950 mb-8 border-b border-gray-100 pb-4">Bölgesel İş Akış Şeması</h3>
+            <div className="space-y-8 relative before:absolute before:inset-0 before:ml-6 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-200 before:to-transparent">
+              {[
+                { title: "Dijital Analiz", desc: `${currentIlce} bölgesindeki adresiniz için eşya hacmi, asansör açısı ve araç park uygunluğu analiz edilir.` },
+                { title: "İzole Paketleme", desc: "Tüm eşyalarınız toz, nem ve darbeye karşı 5 katmanlı kraft malzemelerle kaplanarak taşımaya hazır hale getirilir." },
+                { title: "Sarsıntısız Lojistik", desc: "Araç içi sabitleme sistemleriyle (lashing) donatılmış araçlarımızla eşyalarınız yeni rotasına doğru güvenle yola çıkar." },
+                { title: "Anahtar Teslim Kurulum", desc: "Varış noktasında tüm mobilya ve beyaz eşyalarınız, marangoz ve tesisat ustalarımızca eksiksiz kurularak teslim edilir." }
+              ].map((step, i) => (
+                <div key={i} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                  <div className="flex items-center justify-center w-12 h-12 rounded-full border-4 border-white bg-orange-500 text-white font-black shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-md z-10">
                     {i + 1}
                   </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">{step.title}</h4>
+                  <div className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-6 rounded-2xl bg-gray-50 border border-gray-100 shadow-sm transition-all hover:shadow-md">
+                    <h4 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h4>
                     <p className="text-gray-600 font-medium text-sm leading-relaxed">{step.desc}</p>
                   </div>
                 </div>
@@ -148,7 +152,20 @@ export default async function DistrictPage({ params }: RouteParams) {
           <section className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-gray-100">
             <h2 className="text-2xl font-black text-blue-950 mb-8">Sıkça Sorulan Sorular</h2>
             <div className="space-y-6">
-              {faqs.map((faq, index) => (
+              {[
+                {
+                  q: `${currentIlce} bölgesi için fiyatlandırma nasıl yapılıyor?`,
+                  a: "Fiyatlarımız; eşyanızın hacmine (m³), taşınacak binaların kat durumuna ve asansör kurulum ihtiyacına göre şeffaf bir şekilde hesaplanır. Sürpriz maliyetler çıkarılmaz."
+                },
+                {
+                  q: "Taşınma sırasında eşyalarım sigortalı mı?",
+                  a: "Operasyon süresince (paketlemeden, varış adresindeki kuruluma kadar) tüm eşyalarınız geniş kapsamlı emtia sigortası ile resmi güvence altına alınır."
+                },
+                {
+                  q: `${currentIlce} dışına şehirler arası hizmetiniz var mı?`,
+                  a: `Kesinlikle. ${currentIlce} çıkışlı olmak şartıyla, Türkiye'nin 81 iline doğrudan, aktarmasız ve çelik kasa araçlarla şehirler arası lojistik hizmeti sağlıyoruz.`
+                }
+              ].map((faq, index) => (
                 <div key={index} className="border-b border-gray-100 pb-6 last:border-0 last:pb-0">
                   <h3 className="font-bold text-blue-950 text-base flex items-start gap-3">
                     <span className="text-orange-500 font-black">S.</span> {faq.q}
@@ -161,39 +178,32 @@ export default async function DistrictPage({ params }: RouteParams) {
         </div>
 
         <div className="space-y-8">
+          
           <div className="bg-blue-950 text-white p-8 rounded-3xl shadow-xl border-b-4 border-orange-500 sticky top-24">
-            <h3 className="text-2xl font-black mb-4">Hızlı Teklif Formu</h3>
+            <h3 className="text-xl font-black mb-4">Ücretsiz Dijital Ekspertiz</h3>
             <p className="text-sm text-blue-200 mb-8 leading-relaxed font-medium">
-              {currentIlce} nakliyat ekibimizden hemen ücretsiz fiyat teklifi almak ve taşınma gününüzü ayırtmak için bizimle iletişime geçin.
+              {currentIlce} bölgesindeki operasyon sorumlumuzdan hemen güncel maliyet analizi ve araç planlaması talep edin.
             </p>
             <div className="space-y-4">
-              <a
-                href="tel:+905322830628"
-                className="block text-center bg-orange-500 hover:bg-orange-600 text-white font-black py-4 rounded-xl transition-all shadow-lg uppercase tracking-wider text-sm"
-              >
-                Hemen Arayın
+              <a href="tel:+905322830628" className="block text-center bg-orange-500 hover:bg-orange-600 text-white font-black py-4 rounded-xl transition-all shadow-lg uppercase tracking-wider text-sm">
+                0532 283 06 28
               </a>
-              <a
-                href="https://wa.me/905322830628"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-center bg-[#25D366] hover:bg-[#20ba56] text-white font-black py-4 rounded-xl transition-all shadow-lg uppercase tracking-wider text-sm"
-              >
-                WhatsApp ile Yazış
-              </a>
+              <Link href="/araclar/esya-listesi" className="block text-center bg-transparent border border-blue-800 hover:bg-blue-900 text-white font-black py-4 rounded-xl transition-all uppercase tracking-wider text-sm">
+                Eşya Listesi Gönder
+              </Link>
             </div>
             <div className="border-t border-blue-900 mt-8 pt-6 text-xs text-center text-blue-300 font-bold uppercase tracking-widest">
-              7/24 Kesintisiz Hizmet
+              Kurumsal Lojistik Ağı
             </div>
           </div>
 
           <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100">
-            <h3 className="text-lg font-black text-blue-950 mb-6 border-b pb-2">Diğer Hizmet Bölgelerimiz</h3>
+            <h3 className="text-lg font-black text-blue-950 mb-6 border-b pb-2">Diğer Bölge Ofislerimiz</h3>
             <ul className="space-y-3">
               {otherDistricts.map((d, i) => (
                 <li key={i}>
-                  <Link href={`/${d.slug}`} className="flex items-center gap-2 text-gray-600 hover:text-orange-500 font-medium transition-colors text-sm">
-                    <span className="text-orange-500">📍</span> {d.name} Evden Eve Nakliyat
+                  <Link href={`/istanbul/${d.slug}`} className="flex items-center gap-3 p-2 rounded-xl text-gray-600 hover:bg-gray-50 hover:text-orange-500 font-medium transition-colors border border-transparent hover:border-gray-100 text-sm">
+                    <span className="text-orange-500">📍</span> {d.name} Nakliyat
                   </Link>
                 </li>
               ))}
