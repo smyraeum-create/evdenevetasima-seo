@@ -31,6 +31,34 @@ const hizmetData: Record<string, { baslik: string; kisaOzet: string; detay: stri
     detay: "Ofis taşıma bir hız ve güvenlik operasyonudur. Evraklarınız, IT donanımlarınız (sunucular, bilgisayarlar) ve ofis mobilyalarınız departman bazlı kodlanarak paketlenir. Yeni ofisinizde her şey kendi yerinde ve çalışır vaziyette size teslim edilir. Mesai kaybı yaşamamanız için operasyonları gece veya hafta sonu tamamlıyoruz.",
     avantajlar: ["IT ve Sunucu Taşımacılığı", "Departman Bazlı Kodlama", "Mesai Dışı Operasyon Seçeneği", "Arşiv Taşıma Güvenliği"],
     icon: <svg className="w-10 h-10 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+  },
+  "parca-esya-tasima": {
+    baslik: "Parça Eşya Taşıma",
+    kisaOzet: "Aynı güzergahtaki yüklerin birleştirilmesiyle maliyetleri düşüren ekonomik ve barkodlu taşıma.",
+    detay: "Sadece birkaç parça eşyanız (öğrenci evi, çeyiz, tekli mobilya vb.) varsa koca bir kamyon kiralamanıza gerek yok. Parsiyel (parça eşya) lojistik ağımızla, aynı güzergaha giden diğer eşyalarla aracımızı paylaşımlı kullandırıyor, maliyetinizi minimuma indiriyoruz. Eşyalarınız barkod sistemiyle kodlandığı için karışma ihtimali sıfırdır.",
+    avantajlar: ["%50'ye Varan Maliyet Avantajı", "Barkodlu Karışmazlık Garantisi", "Hızlı ve Pratik Çözüm", "Küçük Hacimlere Özel Tarife"],
+    icon: <svg className="w-10 h-10 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
+  },
+  "arac-nakliyati": {
+    baslik: "Otomobil & Araç Lojistiği",
+    kisaOzet: "Sıfır km veya arızalı araçlarınız için kapalı kasa ve VIP çekici filosuyla tam sigortalı transfer.",
+    detay: "Değerli otomobilleriniz, klasik araçlarınız veya arızalı taşıtlarınız için standart üstü bir lojistik hizmeti sunuyoruz. Araçlarınız çoklu taşıyıcı dorseye değil, özel kapalı kasa veya VIP tekli kurtarıcı araçlarımıza yüklenir. Yol boyunca dış etkenlerden (taş sekmesi, hava şartları) korunarak varış noktasına teslim edilir.",
+    avantajlar: ["Kapalı Dorse Seçeneği", "Klasik & VIP Araç Transferi", "Geniş Kapsamlı Taşıma Sigortası", "Sıfır Kilometre Araç Lojistiği"],
+    icon: <svg className="w-10 h-10 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+  },
+  "esya-depolama": {
+    baslik: "Akıllı Eşya Depolama",
+    kisaOzet: "7/24 güvenlik kameralı ve iklimlendirmeli, kişiye özel şifreli ahşap odalarda muhafaza.",
+    detay: "Yurtdışına çıkıyor, evinizi tadilata sokuyor veya fazla eşyalarınızı saklayacak yer bulamıyorsanız akıllı depo alanlarımız hizmetinizde. Eşyalarınız neme, rutubete ve haşerelere karşı yalıtılmış özel ahşap konteynerlerde (oda sisteminde) muhafaza edilir. Tesislerimiz 7/24 özel güvenlik ve kamera sistemleriyle izlenmektedir.",
+    avantajlar: ["İklimlendirmeli Nemsiz Ortam", "Kişiye Özel Kilitli Ahşap Odalar", "7/24 Kamera ve Özel Güvenlik", "Aylık ve Yıllık Esnek Tarife"],
+    icon: <svg className="w-10 h-10 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+  },
+  "montaj-ve-demontaj": {
+    baslik: "Montaj & Demontaj Hizmeti",
+    kisaOzet: "Modüler mobilyalar ve ankastre setler için sertifikalı marangoz ve teknik personel desteği.",
+    detay: "Taşınma sürecinde mobilyalarınızın yanlış sökülmesi geri dönüşü olmayan hasarlara yol açar. Operasyon ekibimizde yer alan sertifikalı marangozlarımız; yatak odası takımlarınızı, TV ünitelerinizi ve özel tasarım dolaplarınızı dikkatlice demonte eder, havalı ambalajlara sarar ve yeni evinizde eskisinden daha sağlam şekilde montajını gerçekleştirir.",
+    avantajlar: ["Sertifikalı Marangoz Ekibi", "Bağlantı Elemanlarının Korunması", "Yeni Evde Ücretsiz Kurulum", "Ankastre ve Beyaz Eşya Bağlantısı"],
+    icon: <svg className="w-10 h-10 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
   }
 };
 
@@ -61,11 +89,13 @@ export default async function HizmetDetayPage({ params }: Props) {
 
   if (!data) {
     return (
-      <div className="min-h-[60vh] flex items-center justify-center bg-gray-50">
-        <div className="text-center space-y-4">
-          <h1 className="text-4xl font-black text-blue-950">Hizmet Bulunamadı</h1>
-          <p className="text-gray-600">Aradığınız lojistik operasyonu detaylarına şu an ulaşılamıyor.</p>
-          <Link href="/hizmetler" className="inline-block mt-4 text-orange-600 font-bold hover:underline">Tüm Hizmetlerimize Dön</Link>
+      <div className="min-h-[60vh] flex flex-col items-center justify-center bg-gray-50">
+        <div className="text-center space-y-6 max-w-lg mx-auto px-4">
+          <h1 className="text-4xl md:text-5xl font-black text-blue-950">Hizmet Bulunamadı</h1>
+          <p className="text-gray-600 text-lg">Aradığınız lojistik operasyonu detaylarına şu an ulaşılamıyor.</p>
+          <Link href="/hizmetler" className="inline-block mt-4 text-orange-600 font-bold hover:text-orange-700 transition-colors">
+            Tüm Hizmetlerimize Dön
+          </Link>
         </div>
       </div>
     );
