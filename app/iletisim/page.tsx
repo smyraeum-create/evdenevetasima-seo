@@ -1,31 +1,30 @@
-"use client"; // Form state işlemleri için use client ekledik
+"use client";
 
 import { useState } from "react";
 import Link from "next/link";
 import PageBanner from "../components/PageBanner";
 
-// --- ELİTE SVG İKON SETİ ---
 const MapPinIcon = () => (
-  <svg className="w-6 h-6 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.242-4.243a8 8 0 1111.314 0z" />
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
   </svg>
 );
 
 const PhoneIcon = () => (
-  <svg className="w-6 h-6 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
   </svg>
 );
 
 const MailIcon = () => (
-  <svg className="w-6 h-6 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
   </svg>
 );
 
 const ClockIcon = () => (
-  <svg className="w-6 h-6 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
   </svg>
 );
@@ -47,9 +46,9 @@ export default function ContactPage() {
     telefon: "",
     nereden: "",
     nereye: "",
-    esyaDetayi: "", // Mesaj alanı
-    eposta: "Belirtilmedi", // API'miz eposta beklediği için default değer atıyoruz
-    odaSayisi: "Belirtilmedi" // İletişim formunda oda sayısı sormuyoruz, boş kalmasın
+    esyaDetayi: "",
+    eposta: "Belirtilmedi",
+    odaSayisi: "Belirtilmedi"
   });
 
   const updateForm = (field: string, value: string) => {
@@ -76,7 +75,6 @@ export default function ContactPage() {
       
       setIsSubmitting(false);
       setIsSuccess(true);
-      // Başarılı olursa formu sıfırla
       setFormData({
         hizmetTuru: "İletişim Sayfası Hızlı Form",
         adSoyad: "",
@@ -88,7 +86,6 @@ export default function ContactPage() {
         odaSayisi: "Belirtilmedi"
       });
       
-      // 5 Saniye sonra başarı mesajını gizle
       setTimeout(() => setIsSuccess(false), 5000);
       
     } catch (error) {
@@ -162,7 +159,7 @@ export default function ContactPage() {
                     <h3 className="font-bold text-gray-900 text-lg">Çalışma Saatleri</h3>
                     <p className="text-blue-950 font-black text-lg mt-1">08:00 - 19:00</p>
                     <p className="text-xs text-gray-600 mt-3 font-medium leading-relaxed bg-white p-3 rounded-xl border border-gray-100 shadow-sm">
-                      <strong className="text-orange-500 font-black block mb-1">Mesai Dışı Destek:</strong>
+                      <strong className="text-orange-600 font-black block mb-1">Mesai Dışı Destek:</strong>
                       Çalışma saatleri dışındaki zamanlarda <strong className="text-green-600 font-bold">WhatsApp</strong> üzerinden ulaştığınızda, ilk müsait müşteri temsilcimiz operasyon planlaması için size anında dönüş sağlayacaktır.
                     </p>
                   </div>
@@ -173,13 +170,14 @@ export default function ContactPage() {
 
             <div className="w-full h-80 bg-gray-200 rounded-3xl overflow-hidden shadow-xl border border-gray-100">
               <iframe 
-                src="https://maps.google.com/maps?q=Ata%C5%9Fehir%2C%20%C4%B0stanbul&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.652136005891!2d29.1090333!3d40.978132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac612c6f1cdcd%3A0xc08cf705baebf8a6!2zS8O8w6fDvGtiYWtrYWxrw7Z5LCBLYXnEscWfZGHEn8SxIENkLiBBbGkgQXkgU2suIE5vOjMgRDoxLCBBdGFxZWhpci_EsHN0YW5idWw!5e0!3m2!1str!2str!4v1716518400000!5m2!1str!2str" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
                 allowFullScreen={true} 
                 loading="lazy"
-                title="Ofis Konumu"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ataşehir Merkez Ofis Konumu"
               ></iframe>
             </div>
           </div>
@@ -207,28 +205,28 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="ad" className="block text-sm font-bold text-gray-700 mb-2">Adınız Soyadınız</label>
-                  <input type="text" id="ad" value={formData.adSoyad} onChange={(e) => updateForm('adSoyad', e.target.value)} required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50 focus:bg-white" placeholder="Ahmet Yılmaz" />
+                  <input type="text" id="ad" value={formData.adSoyad} onChange={(e) => updateForm('adSoyad', e.target.value)} required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-600 outline-none transition-all bg-gray-50 focus:bg-white" placeholder="Ahmet Yılmaz" />
                 </div>
                 <div>
                   <label htmlFor="telefon" className="block text-sm font-bold text-gray-700 mb-2">Telefon Numaranız</label>
-                  <input type="tel" id="telefon" value={formData.telefon} onChange={(e) => updateForm('telefon', e.target.value)} required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50 focus:bg-white" placeholder="0532 XXX XX XX" />
+                  <input type="tel" id="telefon" value={formData.telefon} onChange={(e) => updateForm('telefon', e.target.value)} required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-600 outline-none transition-all bg-gray-50 focus:bg-white" placeholder="0532 XXX XX XX" />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="nereden" className="block text-sm font-bold text-gray-700 mb-2">Nereden Taşınacak?</label>
-                  <input type="text" id="nereden" value={formData.nereden} onChange={(e) => updateForm('nereden', e.target.value)} required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50 focus:bg-white" placeholder="Örn: Kadıköy, İstanbul" />
+                  <input type="text" id="nereden" value={formData.nereden} onChange={(e) => updateForm('nereden', e.target.value)} required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-600 outline-none transition-all bg-gray-50 focus:bg-white" placeholder="Örn: Kadıköy, İstanbul" />
                 </div>
                 <div>
                   <label htmlFor="nereye" className="block text-sm font-bold text-gray-700 mb-2">Nereye Taşınacak?</label>
-                  <input type="text" id="nereye" value={formData.nereye} onChange={(e) => updateForm('nereye', e.target.value)} required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all bg-gray-50 focus:bg-white" placeholder="Örn: Çankaya, Ankara" />
+                  <input type="text" id="nereye" value={formData.nereye} onChange={(e) => updateForm('nereye', e.target.value)} required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-600 outline-none transition-all bg-gray-50 focus:bg-white" placeholder="Örn: Çankaya, Ankara" />
                 </div>
               </div>
 
               <div>
                 <label htmlFor="mesaj" className="block text-sm font-bold text-gray-700 mb-2">Taşınma Detayları (Opsiyonel)</label>
-                <textarea id="mesaj" value={formData.esyaDetayi} onChange={(e) => updateForm('esyaDetayi', e.target.value)} rows={4} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none transition-all resize-none bg-gray-50 focus:bg-white" placeholder="Oda sayısı, kaçıncı kat, asansör var mı? vb. detayları yazabilirsiniz."></textarea>
+                <textarea id="mesaj" value={formData.esyaDetayi} onChange={(e) => updateForm('esyaDetayi', e.target.value)} rows={4} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-600 outline-none transition-all resize-none bg-gray-50 focus:bg-white" placeholder="Oda sayısı, kaçıncı kat, asansör var mı? vb. detayları yazabilirsiniz."></textarea>
               </div>
 
               <div className="bg-blue-50 border-l-4 border-blue-950 p-4 rounded-r-xl mt-4">
@@ -244,7 +242,7 @@ export default function ContactPage() {
               <div className="mt-auto pt-6">
                 <div className="flex items-center justify-between p-3 bg-gray-50 border border-gray-200 rounded-xl mb-6 max-w-xs shadow-inner">
                   <div className="flex items-center gap-3 pl-2">
-                    <input type="checkbox" id="captcha" required className="w-6 h-6 text-orange-500 rounded border-gray-300 focus:ring-orange-500 cursor-pointer" />
+                    <input type="checkbox" id="captcha" required className="w-6 h-6 text-orange-600 rounded border-gray-300 focus:ring-orange-600 cursor-pointer" />
                     <label htmlFor="captcha" className="text-sm font-bold text-gray-700 cursor-pointer">Ben robot değilim</label>
                   </div>
                   <div className="flex flex-col items-center justify-center">
@@ -253,7 +251,7 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <button type="submit" disabled={isSubmitting || !formData.adSoyad || !formData.telefon} className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-black text-lg py-4 rounded-xl transition-all shadow-lg transform hover:-translate-y-1 uppercase tracking-wider flex justify-center items-center gap-2">
+                <button type="submit" disabled={isSubmitting || !formData.adSoyad || !formData.telefon} className="w-full bg-orange-600 hover:bg-orange-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-black text-lg py-4 rounded-xl transition-all shadow-lg transform hover:-translate-y-1 uppercase tracking-wider flex justify-center items-center gap-2">
                   {isSubmitting ? (
                     <>
                       <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
