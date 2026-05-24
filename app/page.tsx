@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
+// 🚀 NEXT.JS TURBO RESİM MOTORU EKLENDİ
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "İstanbul Evden Eve Nakliyat | Güvenilir Taşıma Firması",
@@ -55,10 +57,17 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       
       <section className="relative bg-blue-950 text-white py-24 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 opacity-30 pointer-events-none">
-          <div className="w-full h-full bg-[url('/images/banners/hero-main.webp')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 opacity-30 pointer-events-none z-0">
+          <Image 
+            src="/images/banners/hero-main.webp"
+            alt="İstanbul Evden Eve Nakliyat"
+            fill
+            priority /* İlk yüklenecek resim VIP emri */
+            className="object-cover object-center"
+          />
           <div className="absolute inset-0 bg-blue-950/80"></div>
         </div>
+        
         <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight">
             İstanbul'un En Güvenilir <br className="hidden md:block" />
@@ -109,7 +118,7 @@ export default function Home() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-black text-blue-950 mb-6">İstanbul'un 39 İlçesinde Kesintisiz Hizmet</h2>
             <p className="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto font-medium">
-              Bulunduğunuz ilçeyi seçerek size özel lojistik detaylarına, bölgesel operasyon planına og anında fiyat teklifine ulaşın.
+              Bulunduğunuz ilçeyi seçerek size özel lojistik detaylarına, bölgesel operasyon planına ve anında fiyat teklifine ulaşın.
             </p>
           </div>
 
@@ -121,6 +130,7 @@ export default function Home() {
               </div>
               <div className="flex-grow h-px bg-gray-200 hidden md:block"></div>
             </div>
+            
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
               {avrupaYakasi.map((ilce) => (
                 <Link 
@@ -128,8 +138,16 @@ export default function Home() {
                   href={`/istanbul/${ilce.id}`}
                   className="group relative h-32 md:h-40 rounded-2xl overflow-hidden shadow-sm transition-all hover:shadow-xl hover:-translate-y-1"
                 >
-                  <div className="absolute inset-0 bg-blue-950 group-hover:bg-orange-500 transition-colors duration-300"></div>
-                  <div className="absolute inset-0 opacity-30 group-hover:opacity-10 transition-opacity bg-cover bg-center" style={{ backgroundImage: `url('/images/ilceler/${ilce.id}.webp')` }}></div>
+                  <div className="absolute inset-0 bg-blue-950 group-hover:bg-orange-500 transition-colors duration-300 z-0"></div>
+                  
+                  <Image 
+                    src={`/images/ilceler/${ilce.id}.webp`}
+                    alt={`${ilce.name} Nakliyat`}
+                    fill
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                    className="object-cover opacity-30 group-hover:opacity-10 transition-opacity duration-300 z-0"
+                  />
+
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center z-10">
                     <span className="text-white font-black text-sm md:text-base tracking-wide uppercase group-hover:scale-105 transition-transform">
                       {ilce.name}
@@ -148,6 +166,7 @@ export default function Home() {
               </div>
               <div className="flex-grow h-px bg-gray-200 hidden md:block"></div>
             </div>
+            
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
               {anadoluYakasi.map((ilce) => (
                 <Link 
@@ -155,8 +174,16 @@ export default function Home() {
                   href={`/istanbul/${ilce.id}`}
                   className="group relative h-32 md:h-40 rounded-2xl overflow-hidden shadow-sm transition-all hover:shadow-xl hover:-translate-y-1"
                 >
-                  <div className="absolute inset-0 bg-gray-900 group-hover:bg-blue-950 transition-colors duration-300"></div>
-                  <div className="absolute inset-0 opacity-30 group-hover:opacity-10 transition-opacity bg-cover bg-center" style={{ backgroundImage: `url('/images/ilceler/${ilce.id}.webp')` }}></div>
+                  <div className="absolute inset-0 bg-gray-900 group-hover:bg-blue-950 transition-colors duration-300 z-0"></div>
+                  
+                  <Image 
+                    src={`/images/ilceler/${ilce.id}.webp`}
+                    alt={`${ilce.name} Nakliyat`}
+                    fill
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                    className="object-cover opacity-30 group-hover:opacity-10 transition-opacity duration-300 z-0"
+                  />
+
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center z-10">
                     <span className="text-white font-black text-sm md:text-base tracking-wide uppercase group-hover:scale-105 transition-transform">
                       {ilce.name}
