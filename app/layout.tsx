@@ -45,8 +45,50 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "MovingCompany",
+    "name": "Evden Eve Taşıma",
+    "image": "https://evdenevetasima.org/brand/logo.svg",
+    "@id": "https://evdenevetasima.org",
+    "url": "https://evdenevetasima.org",
+    "telephone": "+905322830628",
+    "priceRange": "₺₺",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Küçükbakkalköy Mh. Kayışdağı Cd. Ali Ay Sk. No: 3/1 Orkide Apt.",
+      "addressLocality": "Ataşehir",
+      "addressRegion": "İstanbul",
+      "addressCountry": "TR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 40.9775,
+      "longitude": 29.1105
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+      ],
+      "opens": "08:00",
+      "closes": "19:00"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Turkey"
+    }
+  };
+
   return (
     <html lang="tr">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`${inter.className} bg-gray-50 text-gray-900 flex flex-col min-h-screen antialiased`}>
         
         <Script 
@@ -61,46 +103,6 @@ export default function RootLayout({
             gtag('config', 'G-0CY6EDY93B', {
               page_path: window.location.pathname,
             });
-          `}
-        </Script>
-
-        {/* 🚀 SEO AYARI: Schema.org Yapısal Veri (MovingCompany) Entegrasyonu */}
-        <Script id="schema-structured-data" type="application/ld+json" strategy="beforeInteractive">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "MovingCompany",
-              "name": "Evden Eve Taşıma",
-              "image": "https://evdenevetasima.org/brand/logo.svg",
-              "@id": "https://evdenevetasima.org",
-              "url": "https://evdenevetasima.org",
-              "telephone": "+905322830628",
-              "priceRange": "₺₺",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Küçükbakkalköy Mh. Kayışdağı Cd. Ali Ay Sk. No: 3/1 Orkide Apt.",
-                "addressLocality": "Ataşehir",
-                "addressRegion": "İstanbul",
-                "addressCountry": "TR"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 40.9775,
-                "longitude": 29.1105
-              },
-              "openingHoursSpecification": {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
-                ],
-                "opens": "08:00",
-                "closes": "19:00"
-              },
-              "areaServed": {
-                "@type": "Country",
-                "name": "Turkey"
-              }
-            }
           `}
         </Script>
 
