@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import PageBanner from "../../components/PageBanner";
 
 type Category = 
@@ -20,55 +20,57 @@ interface Item {
 }
 
 export default function CalculatorPage() {
-  const [items, setItems] = useState<Item[]>([
-    { name: "Üçlü Koltuk", m3: 1.5, count: 0, category: "Salon & Oturma Odası" },
-    { name: "İkili Koltuk", m3: 1.1, count: 0, category: "Salon & Oturma Odası" },
-    { name: "Tekli Koltuk / Berjer", m3: 0.6, count: 0, category: "Salon & Oturma Odası" },
-    { name: "L Koltuk / Köşe Takımı", m3: 2.5, count: 0, category: "Salon & Oturma Odası" },
-    { name: "TV Ünitesi (Alt Modül)", m3: 0.8, count: 0, category: "Salon & Oturma Odası" },
-    { name: "Gümüşlük / Vitrin", m3: 1.2, count: 0, category: "Salon & Oturma Odası" },
-    { name: "Konsol", m3: 1.0, count: 0, category: "Salon & Oturma Odası" },
-    { name: "Yemek Masası", m3: 1.0, count: 0, category: "Salon & Oturma Odası" },
-    { name: "Yemek Sandalyesi", m3: 0.2, count: 0, category: "Salon & Oturma Odası" },
-    { name: "Orta Sehpa", m3: 0.3, count: 0, category: "Salon & Oturma Odası" },
-    { name: "Büyük Halı (6m²)", m3: 0.2, count: 0, category: "Salon & Oturma Odası" },
+  const [items, setItems] = useState<Item[]>(
+    [
+      { name: "Üçlü Koltuk", m3: 1.5, count: 0, category: "Salon & Oturma Odası" },
+      { name: "İkili Koltuk", m3: 1.1, count: 0, category: "Salon & Oturma Odası" },
+      { name: "Tekli Koltuk / Berjer", m3: 0.6, count: 0, category: "Salon & Oturma Odası" },
+      { name: "L Koltuk / Köşe Takımı", m3: 2.5, count: 0, category: "Salon & Oturma Odası" },
+      { name: "TV Ünitesi (Alt Modül)", m3: 0.8, count: 0, category: "Salon & Oturma Odası" },
+      { name: "Gümüşlük / Vitrin", m3: 1.2, count: 0, category: "Salon & Oturma Odası" },
+      { name: "Konsol", m3: 1.0, count: 0, category: "Salon & Oturma Odası" },
+      { name: "Yemek Masası", m3: 1.0, count: 0, category: "Salon & Oturma Odası" },
+      { name: "Yemek Sandalyesi", m3: 0.2, count: 0, category: "Salon & Oturma Odası" },
+      { name: "Orta Sehpa", m3: 0.3, count: 0, category: "Salon & Oturma Odası" },
+      { name: "Büyük Halı (6m²)", m3: 0.2, count: 0, category: "Salon & Oturma Odası" },
 
-    { name: "Çift Kişilik Yatak (Baza+Başlık)", m3: 2.0, count: 0, category: "Yatak Odası" },
-    { name: "Tek Kişilik Yatak (Baza+Başlık)", m3: 1.2, count: 0, category: "Yatak Odası" },
-    { name: "Gardırop (Sürgülü/Büyük)", m3: 3.5, count: 0, category: "Yatak Odası" },
-    { name: "Gardırop (3 Kapılı)", m3: 2.0, count: 0, category: "Yatak Odası" },
-    { name: "Şifonyer", m3: 0.5, count: 0, category: "Yatak Odası" },
-    { name: "Komodin", m3: 0.2, count: 0, category: "Yatak Odası" },
-    { name: "Makyaj Masası", m3: 0.6, count: 0, category: "Yatak Odası" },
-    { name: "Bebek Beşiği", m3: 0.8, count: 0, category: "Yatak Odası" },
+      { name: "Çift Kişilik Yatak (Baza+Başlık)", m3: 2.0, count: 0, category: "Yatak Odası" },
+      { name: "Tek Kişilik Yatak (Baza+Başlık)", m3: 1.2, count: 0, category: "Yatak Odası" },
+      { name: "Gardırop (Sürgülü/Büyük)", m3: 3.5, count: 0, category: "Yatak Odası" },
+      { name: "Gardırop (3 Kapılı)", m3: 2.0, count: 0, category: "Yatak Odası" },
+      { name: "Şifonyer", m3: 0.5, count: 0, category: "Yatak Odası" },
+      { name: "Komodin", m3: 0.2, count: 0, category: "Yatak Odası" },
+      { name: "Makyaj Masası", m3: 0.6, count: 0, category: "Yatak Odası" },
+      { name: "Bebek Beşiği", m3: 0.8, count: 0, category: "Yatak Odası" },
 
-    { name: "Buzdolabı (Standart)", m3: 1.2, count: 0, category: "Beyaz Eşya" },
-    { name: "Buzdolabı (Gardırop Tipi)", m3: 2.0, count: 0, category: "Beyaz Eşya" },
-    { name: "Çamaşır Makinesi", m3: 0.5, count: 0, category: "Beyaz Eşya" },
-    { name: "Bulaşık Makinesi", m3: 0.5, count: 0, category: "Beyaz Eşya" },
-    { name: "Fırın / Solo Ocak", m3: 0.4, count: 0, category: "Beyaz Eşya" },
-    { name: "Kurutma Makinesi", m3: 0.5, count: 0, category: "Beyaz Eşya" },
-    { name: "Derin Dondurucu", m3: 0.6, count: 0, category: "Beyaz Eşya" },
+      { name: "Buzdolabı (Standart)", m3: 1.2, count: 0, category: "Beyaz Eşya" },
+      { name: "Buzdolabı (Gardırop Tipi)", m3: 2.0, count: 0, category: "Beyaz Eşya" },
+      { name: "Çamaşır Makinesi", m3: 0.5, count: 0, category: "Beyaz Eşya" },
+      { name: "Bulaşık Makinesi", m3: 0.5, count: 0, category: "Beyaz Eşya" },
+      { name: "Fırın / Solo Ocak", m3: 0.4, count: 0, category: "Beyaz Eşya" },
+      { name: "Kurutma Makinesi", m3: 0.5, count: 0, category: "Beyaz Eşya" },
+      { name: "Derin Dondurucu", m3: 0.6, count: 0, category: "Beyaz Eşya" },
 
-    { name: "Çalışma Masası", m3: 0.6, count: 0, category: "Çalışma Odası" },
-    { name: "Ofis Sandalyesi", m3: 0.3, count: 0, category: "Çalışma Odası" },
-    { name: "Kitaplık", m3: 0.8, count: 0, category: "Çalışma Odası" },
-    { name: "Evrak Dolabı", m3: 1.0, count: 0, category: "Çalışma Odası" },
+      { name: "Çallışma Masası", m3: 0.6, count: 0, category: "Çalışma Odası" },
+      { name: "Ofis Sandalyesi", m3: 0.3, count: 0, category: "Çalışma Odası" },
+      { name: "Kitaplık", m3: 0.8, count: 0, category: "Çalışma Odası" },
+      { name: "Evrak Dolabı", m3: 1.0, count: 0, category: "Çalışma Odası" },
 
-    { name: "Mutfak Masası", m3: 0.5, count: 0, category: "Mutfak & Banyo" },
-    { name: "Mutfak Sandalyesi / Tabure", m3: 0.1, count: 0, category: "Mutfak & Banyo" },
-    { name: "Su Sebili", m3: 0.3, count: 0, category: "Mutfak & Banyo" },
-    { name: "Banyo Dolabı (Boy)", m3: 0.5, count: 0, category: "Mutfak & Banyo" },
+      { name: "Mutfak Masası", m3: 0.5, count: 0, category: "Mutfak & Banyo" },
+      { name: "Mutfak Sandalyesi / Tabure", m3: 0.1, count: 0, category: "Mutfak & Banyo" },
+      { name: "Su Sebili", m3: 0.3, count: 0, category: "Mutfak & Banyo" },
+      { name: "Banyo Dolabı (Boy)", m3: 0.5, count: 0, category: "Mutfak & Banyo" },
 
-    { name: "Portmanto / Vestiyer", m3: 1.5, count: 0, category: "Antre & Hol" },
-    { name: "Ayakkabılık", m3: 0.4, count: 0, category: "Antre & Hol" },
-    { name: "Dresuar", m3: 0.4, count: 0, category: "Antre & Hol" },
+      { name: "Portmanto / Vestiyer", m3: 1.5, count: 0, category: "Antre & Hol" },
+      { name: "Ayakkabılık", m3: 0.4, count: 0, category: "Antre & Hol" },
+      { name: "Dresuar", m3: 0.4, count: 0, category: "Antre & Hol" },
 
-    { name: "Standart Karton Koli", m3: 0.1, count: 0, category: "Kutu, Koli & Hurçlar" },
-    { name: "Büyük Boy Koli", m3: 0.15, count: 0, category: "Kutu, Koli & Hurçlar" },
-    { name: "Kıyafet Hurcu / Çuval", m3: 0.1, count: 0, category: "Kutu, Koli & Hurçlar" },
-    { name: "Askılı Elbise Kolisi", m3: 0.3, count: 0, category: "Kutu, Koli & Hurçlar" },
-  ]);
+      { name: "Standart Karton Koli", m3: 0.1, count: 0, category: "Kutu, Koli & Hurçlar" },
+      { name: "Büyük Boy Koli", m3: 0.15, count: 0, category: "Kutu, Koli & Hurçlar" },
+      { name: "Kıyafet Hurcu / Çuval", m3: 0.1, count: 0, category: "Kutu, Koli & Hurçlar" },
+      { name: "Askıllı Elbise Kolisi", m3: 0.3, count: 0, category: "Kutu, Koli & Hurçlar" },
+    ]
+  );
 
   const totalM3 = items.reduce((acc, curr) => acc + (curr.m3 * curr.count), 0);
 
@@ -79,8 +81,9 @@ export default function CalculatorPage() {
   };
 
   const renderCategory = (categoryName: Category) => {
-    const categoryItems = items.map((item, index) => ({ ...item, originalIndex: index }))
-                               .filter(item => item.category === categoryName);
+    const categoryItems = items
+      .map((item, index) => ({ ...item, originalIndex: index }))
+      .filter((item) => item.category === categoryName);
 
     if (categoryItems.length === 0) return null;
 
@@ -136,21 +139,23 @@ export default function CalculatorPage() {
               <div className="text-sm uppercase font-bold text-blue-300 mb-2 tracking-widest">Toplam Eşya Hacmi</div>
               <div className="text-6xl font-black text-orange-500 mb-6">{totalM3.toFixed(1)} <span className="text-2xl text-white">m³</span></div>
               
-              <div className="bg-blue-900/50 p-5 rounded-2xl border border-blue-800 text-sm font-medium mb-8">
-                Sistem Tarafından Önerilen Araç:<br/>
-                <strong className="text-xl text-white mt-2 block">
+              <div className="bg-blue-900/50 p-5 rounded-2xl border border-blue-800 text-sm font-medium mb-8 text-left">
+                System Tarafından Önerilen Araç:<br/>
+                <strong className="text-xl text-white mt-2 block text-center bg-blue-950 py-2 rounded-xl border border-blue-800">
                   {totalM3 === 0 ? "Eşya Seçilmedi" : 
                    totalM3 <= 14 ? "Küçük Boy Kamyonet (Panelvan)" : 
                    totalM3 <= 28 ? "Orta Boy Kamyon (10 Teker)" : 
                    totalM3 <= 45 ? "Büyük Boy Kamyon (Kırkayak)" : 
                    "Tır / Çoklu Kamyon Filosu"}
                 </strong>
-                <span className="block text-blue-300 text-xs mt-3 opacity-80">*Yukarıdaki hesaplama standart istifleme yöntemlerine göre yapılmıştır.</span>
+                <span className="block text-blue-300 text-xs mt-3 opacity-80 leading-relaxed text-center">*Yukarıdaki hesaplama standart istifleme yöntemlerine göre yapılmıştır.</span>
               </div>
 
               <a 
-                href="tel:+905322830628" 
-                className="block w-full bg-orange-500 hover:bg-orange-600 text-white font-black py-5 rounded-xl transition-all shadow-lg uppercase text-sm tracking-wider"
+                href={`https://wa.me/905322830628?text=Merhaba,%20sitenizdeki%20hacim%20hesaplayıcı%20ile%20eşyalarımı%20hesapladım.%20Toplam%20hacim:%20${totalM3.toFixed(1)}%20m³%20çıktı.%20Fiyat%20teklifi%20alabilir%20miyim?`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full bg-orange-600 hover:bg-orange-700 text-white font-black py-5 rounded-xl transition-all shadow-lg uppercase text-sm tracking-wider transform hover:-translate-y-0.5"
               >
                 Bu Hacim İçin Fiyat Al
               </a>

@@ -1,3 +1,4 @@
+import React from "react";
 import { Metadata } from "next";
 import Link from "next/link";
 import PageBanner from "../components/PageBanner";
@@ -28,16 +29,13 @@ const WarehouseIcon = () => (
 const ToolsIcon = () => (
   <svg className="w-10 h-10 text-orange-500 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
 );
-
 const ElevatorIcon = () => (
-  <svg className="w-10 h-10 text-orange-500 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7l4-4m0 0l4 4m-4-4v18M4 21h16" />
-  </svg>
+  <svg className="w-10 h-10 text-orange-500 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7l4-4m0 0l4 4m-4-4v18M4 21h16" /></svg>
 );
 
 const servicesList = [
   { slug: "evden-eve-nakliyat", title: "Evden Eve Nakliyat", desc: "Avrupa standartlarında ambalajlama ve sıfır risk politikası ile anahtar teslim ev taşıma operasyonları.", icon: <HomeIcon /> },
-  { slug: "sehirler-arasi-tasima", title: "Şehirler Arası Nakliyat", desc: "Türkiye'nin 81 iline aktarmasız direkt rotalama ve çelik kasa araçlarla uzun yol taşımacılığı.", icon: <TruckIcon /> },
+  { slug: "sehirler-arasi-tasima", title: "Şehirler Arası Nakliyat", desc: "Türkiye&apos;nin 81 iline aktarmasız direkt rotalama ve çelik kasa araçlarla uzun yol taşımacılığı.", icon: <TruckIcon /> },
   { slug: "ofis-tasima", title: "Kurumsal Ofis Taşıma", desc: "İş sürekliliğinizi aksatmayan, IT altyapısı ve arşiv güvenliği odaklı kurumsal lojistik.", icon: <OfficeIcon /> },
   { slug: "parca-esya-tasima", title: "Parsiyel (Parça) Eşya", desc: "Aynı güzergahtaki yüklerin birleştirilmesiyle maliyetleri düşüren ekonomik ve barkodlu taşıma.", icon: <BoxIcon /> },
   { slug: "arac-nakliyati", title: "Otomobil & Araç Lojistiği", desc: "Sıfır km veya arızalı araçlarınız için kapalı kasa ve VIP çekici filosuyla tam sigortalı transfer.", icon: <CarIcon /> },
