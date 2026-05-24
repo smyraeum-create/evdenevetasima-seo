@@ -62,7 +62,8 @@ export default function Home() {
             alt="İstanbul Evden Eve Nakliyat"
             fill
             priority 
-            quality={70} 
+            fetchPriority="high" 
+            quality={75} 
             className="object-cover object-center"
           />
           <div className="absolute inset-0 bg-blue-950/80"></div>
@@ -77,7 +78,7 @@ export default function Home() {
             Sigortalı, asansörlü ve uzman marangozlu taşımacılık hizmetiyle eşyalarınız yeni evinize sıfır riskle taşınsın.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="tel:+905322830628" className="bg-orange-500 hover:bg-orange-600 text-white px-10 py-5 rounded-full font-black text-xl transition-all shadow-2xl transform hover:scale-105 flex items-center justify-center gap-2">
+            <a href="tel:+905322830628" className="bg-orange-600 hover:bg-orange-700 text-white px-10 py-5 rounded-full font-black text-xl transition-all shadow-2xl transform hover:scale-105 flex items-center justify-center gap-2">
               0532 283 06 28
             </a>
             <Link href="/hizmetler/sehirler-arasi-tasima" className="bg-white hover:bg-gray-50 text-blue-950 px-10 py-5 rounded-full font-bold text-xl transition-all shadow-lg flex items-center justify-center border border-gray-100">
@@ -93,19 +94,19 @@ export default function Home() {
             
             <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 text-center transform transition-transform hover:-translate-y-2">
               <ShieldIcon />
-              <h3 className="text-xl font-black text-blue-950 mb-3">%100 Sigorta Güvencesi</h3>
+              <h2 className="text-xl font-black text-blue-950 mb-3">%100 Sigorta Güvencesi</h2>
               <p className="text-gray-600 leading-relaxed text-sm font-medium">Tüm emtialarınız ve eşyalarınız yol boyunca oluşabilecek risklere karşı tam kapsamlı nakliyat sigortası ile koruma altındadır.</p>
             </div>
 
             <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 text-center transform transition-transform hover:-translate-y-2">
               <CraneIcon />
-              <h3 className="text-xl font-black text-blue-950 mb-3">Modüler Asansörlü Nakliyat</h3>
+              <h2 className="text-xl font-black text-blue-950 mb-3">Modüler Asansörlü Nakliyat</h2>
               <p className="text-gray-600 leading-relaxed text-sm font-medium">Yüksek katlı binalarda deformasyonları sıfırlayan mobil hidrolik dış cephe asansör sistemleri.</p>
             </div>
 
             <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 text-center transform transition-transform hover:-translate-y-2">
               <BoxIcon />
-              <h3 className="text-xl font-black text-blue-950 mb-3">Endüstriyel Özel Ambalaj</h3>
+              <h2 className="text-xl font-black text-blue-950 mb-3">Endüstriyel Özel Ambalaj</h2>
               <p className="text-gray-600 leading-relaxed text-sm font-medium">Kırılgan ve hassas yükleriniz için darbe sönümleyici, 5 katmanlı kraft havalı patpat ve ambalaj çözümleri.</p>
             </div>
 
@@ -138,7 +139,7 @@ export default function Home() {
                   href={`/istanbul/${ilce.id}`}
                   className="group relative h-32 md:h-40 rounded-2xl overflow-hidden shadow-sm transition-all hover:shadow-xl hover:-translate-y-1"
                 >
-                  <div className="absolute inset-0 bg-blue-950 group-hover:bg-orange-500 transition-colors duration-300 z-0"></div>
+                  <div className="absolute inset-0 bg-blue-950 group-hover:bg-orange-600 transition-colors duration-300 z-0"></div>
                   
                   <Image 
                     src={`/images/ilceler/${ilce.id}.webp`}
@@ -198,7 +199,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-orange-500 py-20 text-white">
+      <section className="bg-orange-600 py-20 text-white">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-black mb-4">Türkiye'nin Nakliyat Lideriyle Tanışın</h2>
           <p className="mb-10 text-orange-100 text-lg md:text-xl max-w-2xl mx-auto font-medium">
