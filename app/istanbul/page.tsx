@@ -9,48 +9,11 @@ export const metadata: Metadata = {
 };
 
 const avrupaYakasi = [
-  "Arnavutköy",
-  "Avcılar",
-  "Bağcılar",
-  "Bahçelievler",
-  "Bakırköy",
-  "Başakşehir",
-  "Bayrampaşa",
-  "Beşiktaş",
-  "Beylikdüzü",
-  "Beyoğlu",
-  "Büyükçekmece",
-  "Çatalca",
-  "Esenler",
-  "Esenyurt",
-  "Eyüpsultan",
-  "Fatih",
-  "Gaziosmanpaşa",
-  "Güngören",
-  "Kâğıthane",
-  "Küçükçekmece",
-  "Sarıyer",
-  "Silivri",
-  "Sultangazi",
-  "Şişli",
-  "Zeytinburnu"
+  "Arnavutköy", "Avcılar", "Bağcılar", "Bahçelievler", "Bakırköy", "Başakşehir", "Bayrampaşa", "Beşiktaş", "Beylikdüzü", "Beyoğlu", "Büyükçekmece", "Çatalca", "Esenler", "Esenyurt", "Eyüpsultan", "Fatih", "Gaziosmanpaşa", "Güngören", "Kâğıthane", "Küçükçekmece", "Sarıyer", "Silivri", "Sultangazi", "Şişli", "Zeytinburnu"
 ];
 
 const anadoluYakasi = [
-  "Adalar",
-  "Ataşehir",
-  "Beykoz",
-  "Çekmeköy",
-  "Kadıköy",
-  "Kartal",
-  "Maltepe",
-  "Pendik",
-  "Sancaktepe",
-  "Sultanbeyli",
-  "Şile",
-  "Tuzla",
-  "Ümraniye",
-  "Üsküdar"
+  "Adalar", "Ataşehir", "Beykoz", "Çekmeköy", "Kadıköy", "Kartal", "Maltepe", "Pendik", "Sancaktepe", "Sultanbeyli", "Şile", "Tuzla", "Ümraniye", "Üsküdar"
 ];
 
 const slugify = (text: string) => {

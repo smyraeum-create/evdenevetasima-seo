@@ -7,7 +7,10 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import CookieBanner from "./components/CookieBanner";
 import Script from "next/script";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -48,14 +51,16 @@ export default function RootLayout({
         
         <Script 
           src="https://www.googletagmanager.com/gtag/js?id=G-0CY6EDY93B" 
-          strategy="lazyOnload" 
+          strategy="afterInteractive" 
         />
-        <Script id="google-analytics" strategy="lazyOnload">
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-0CY6EDY93B');
+            gtag('config', 'G-0CY6EDY93B', {
+              page_path: window.location.pathname,
+            });
           `}
         </Script>
 

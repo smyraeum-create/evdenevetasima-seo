@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-// --- ELİTE SVG İKON SETİ (Emojilerin Yerine) ---
 const MapPinIcon = () => (
   <svg className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.242-4.243a8 8 0 1111.314 0z" />
@@ -25,7 +24,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-gray-300 mt-auto">
+    <footer className="bg-gray-900 text-gray-200 mt-auto"> 
       <div className="max-w-7xl mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           
@@ -37,6 +36,7 @@ export default function Footer() {
                   alt="Evden Eve Taşıma Logosu" 
                   width={48} 
                   height={48} 
+                  quality={60} 
                   className="w-12 h-12 object-contain"
                 />
               </div>
@@ -44,7 +44,7 @@ export default function Footer() {
                 Evden Eve Taşıma
               </span>
             </Link>
-            <p className="text-sm leading-relaxed text-gray-400 font-medium">
+            <p className="text-sm leading-relaxed text-gray-300 font-medium"> 
               İstanbul&apos;dan Türkiye&apos;nin dört bir yanına sigortalı, asansörlü ve profesyonel nakliyat çözümleri sunuyoruz. Eşyalarınız uzman kadromuzla her zaman güvende.
             </p>
           </div>
@@ -94,9 +94,9 @@ export default function Footer() {
       </div>
 
       <div className="bg-black py-5 border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-          <p>© {currentYear} Evden Eve Taşıma ve Nakliye. Tüm Hakları Saklıdır.</p>
-          <p className="mt-3 md:mt-0 flex items-center gap-1 font-medium italic">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400"> 
+          <p className="font-medium text-gray-300">© {currentYear} Evden Eve Taşıma ve Nakliye. Tüm Hakları Saklıdır.</p>
+          <p className="mt-3 md:mt-0 flex items-center gap-1 font-medium italic text-gray-300">
             Designed & Coded by 
             <a 
               href="https://wa.me/905322830628" 
