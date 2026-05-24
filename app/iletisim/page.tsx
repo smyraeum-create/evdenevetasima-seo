@@ -1,9 +1,10 @@
-"use client";
+"use client"; // Form state işlemleri için use client ekledik
 
 import { useState } from "react";
 import Link from "next/link";
 import PageBanner from "../components/PageBanner";
 
+// --- ELİTE SVG İKON SETİ ---
 const MapPinIcon = () => (
   <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.242-4.243a8 8 0 1111.314 0z" />
@@ -167,13 +168,15 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="w-full h-80 bg-gray-200 rounded-3xl overflow-hidden shadow-xl border border-gray-100">
+            <div className="w-full h-80 bg-gray-200 rounded-3xl overflow-hidden shadow-xl border border-gray-100 relative">
+              <div className="absolute inset-0 flex items-center justify-center text-gray-400 font-medium">Harita Yükleniyor...</div>
+              
               <iframe 
-                src="https://maps.google.com/maps?q=40.979508,29.107948&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                src="https://maps.google.com/maps?q=40.979508,29.107948&z=16&output=embed" 
                 width="100%" 
                 height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen={true} 
+                style={{ border: 0, position: 'relative', zIndex: 10 }} 
+                allowFullScreen={false} 
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Ataşehir Merkez Ofis Konumu"
