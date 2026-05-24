@@ -103,11 +103,12 @@ export default async function HizmetDetayPage({ params }: Props) {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
+      
       <PageBanner 
         category="Lojistik Çözümlerimiz"
         title={data.baslik}
         description={data.kisaOzet}
-        bgImage="/images/banners/hizmetler.webp" 
+        bgImage={`/images/hizmetler/${slugId}-banner.webp`} 
       />
 
       <main className="flex-grow py-16 md:py-24 max-w-7xl mx-auto px-4 w-full">
@@ -122,6 +123,33 @@ export default async function HizmetDetayPage({ params }: Props) {
               <p className="text-gray-600 text-lg leading-relaxed font-medium">
                 {data.detay}
               </p>
+
+              <div className="mt-12 space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="rounded-2xl overflow-hidden shadow-md border border-gray-100 h-64">
+                    <img 
+                      src={`/images/hizmetler/${slugId}-1.webp`} 
+                      alt={`${data.baslik} Detay 1`} 
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 bg-gray-200"
+                    />
+                  </div>
+                  <div className="rounded-2xl overflow-hidden shadow-md border border-gray-100 h-64">
+                    <img 
+                      src={`/images/hizmetler/${slugId}-2.webp`} 
+                      alt={`${data.baslik} Detay 2`} 
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 bg-gray-200"
+                    />
+                  </div>
+                </div>
+                <div className="rounded-2xl overflow-hidden shadow-md border border-gray-100 h-80">
+                  <img 
+                    src={`/images/hizmetler/${slugId}-3.webp`} 
+                    alt={`${data.baslik} Detay 3`} 
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 bg-gray-200"
+                  />
+                </div>
+              </div>
+
             </div>
 
             <div className="bg-blue-950 p-8 md:p-12 rounded-3xl shadow-xl text-white">
