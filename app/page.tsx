@@ -71,7 +71,7 @@ export default function Home() {
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight">
-            İstanbul'un En Güvenilir <br className="hidden md:block" />
+            İstanbul&apos;un En Güvenilir <br className="hidden md:block" />
             <span className="text-orange-500">Evden Eve Nakliyat</span> Firması
           </h1>
           <p className="text-lg md:text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed font-medium">
@@ -117,7 +117,7 @@ export default function Home() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-black text-blue-950 mb-6">İstanbul'un 39 İlçesinde Kesintisiz Hizmet</h2>
+            <h2 className="text-3xl md:text-5xl font-black text-blue-950 mb-6">İstanbul&apos;un 39 İlçesinde Kesintisiz Hizmet</h2>
             <p className="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto font-medium">
               Bulunduğunuz ilçeyi seçerek size özel lojistik detaylarına, bölgesel operasyon planına ve anında fiyat teklifine ulaşın.
             </p>
@@ -145,6 +145,7 @@ export default function Home() {
                     src={`/images/ilceler/${ilce.id}.webp`}
                     alt={`${ilce.name} Nakliyat`}
                     fill
+                    loading="lazy"
                     quality={50}
                     sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
                     className="object-cover opacity-30 group-hover:opacity-10 transition-opacity duration-300 z-0"
@@ -182,6 +183,7 @@ export default function Home() {
                     src={`/images/ilceler/${ilce.id}.webp`}
                     alt={`${ilce.name} Nakliyat`}
                     fill
+                    loading="lazy"
                     quality={50}
                     sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
                     className="object-cover opacity-30 group-hover:opacity-10 transition-opacity duration-300 z-0"
@@ -199,17 +201,18 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 🚀 ERİŞİLEBİLİRLİK GÜNCELLEMESİ (100) */}
       <section className="bg-orange-600 py-20 text-white">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-black mb-4">Türkiye'nin Nakliyat Lideriyle Tanışın</h2>
-          <p className="mb-10 text-orange-100 text-lg md:text-xl max-w-2xl mx-auto font-medium">
-            İstanbul'u ilçe ilçe planlıyor, Türkiye'nin her noktasına mühendislik hassasiyetinde kurumsal lojistik taşıyoruz.
+          <h2 className="text-3xl md:text-4xl font-black mb-4">Türkiye&apos;nin Nakliyat Lideriyle Tanışın</h2>
+          <p className="mb-10 text-orange-50 text-lg md:text-xl max-w-2xl mx-auto font-medium">
+            İstanbul&apos;u ilçe ilçe planlıyor, Türkiye&apos;nin her noktasına mühendislik hassasiyetinde kurumsal lojistik taşıyoruz.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
              <Link href="/araclar/hacim-hesaplama" className="bg-blue-950 text-white hover:bg-gray-900 px-10 py-4 rounded-full font-bold text-lg transition-all shadow-xl text-center">
                Hacim Hesapla
              </Link>
-             <a href="tel:+905322830628" className="bg-white text-orange-600 hover:bg-gray-50 px-10 py-4 rounded-full font-black text-lg transition-all shadow-xl text-center">
+             <a href="tel:+905322830628" className="bg-white text-blue-950 hover:bg-gray-100 px-10 py-4 rounded-full font-black text-lg transition-all shadow-xl text-center">
                Hemen Arayın
              </a>
           </div>
