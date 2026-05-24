@@ -169,7 +169,7 @@ export default function ContactPage() {
 
             <div className="w-full h-80 bg-gray-200 rounded-3xl overflow-hidden shadow-xl border border-gray-100">
               <iframe 
-                src="https://maps.google.com/maps?q=Küçükbakkalköy%20Mh.%20Kayışdağı%20Cd.%20Ali%20Ay%20Sk.%20No%3A%203%2F1%20Ataşehir%20%2F%20İSTANBUL&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=40.979508,29.107948&t=&z=16&ie=UTF8&iwloc=&output=embed" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
@@ -181,6 +181,7 @@ export default function ContactPage() {
             </div>
           </div>
 
+          {/* SAĞ KOLON: FORMLAR */}
           <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-gray-100 flex flex-col relative overflow-hidden">
             
             {isSuccess && (
