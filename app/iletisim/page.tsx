@@ -1,10 +1,9 @@
-"use client"; // Form state işlemleri için use client ekledik
+"use client";
 
 import { useState } from "react";
 import Link from "next/link";
 import PageBanner from "../components/PageBanner";
 
-// --- ELİTE SVG İKON SETİ ---
 const MapPinIcon = () => (
   <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.242-4.243a8 8 0 1111.314 0z" />
@@ -71,6 +70,15 @@ export default function ContactPage() {
 
       if (!response.ok) {
         throw new Error("Sunucu hatası");
+      }
+      
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'form_gonderimi', {
+          'event_category': 'iletisim',
+          'event_label': 'İletişim Formu',
+          'value': 1
+        });
+        console.log("Analytics: Form gönderimi kaydedildi.");
       }
       
       setIsSubmitting(false);

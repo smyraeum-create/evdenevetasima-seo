@@ -1,4 +1,21 @@
+"use client";
+
+import React from 'react';
+
 export default function WhatsAppButton() {
+  
+  const trackWhatsAppClick = () => {
+    // TypeScript için window.gtag kontrolü
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'whatsapp_click', {
+        'event_category': 'iletisim',
+        'event_label': 'WhatsApp Butonu',
+        'value': 1
+      });
+      console.log("Analytics: WhatsApp tıklaması kaydedildi.");
+    }
+  };
+
   return (
     <div className="fixed bottom-6 right-6 z-50 flex items-center justify-center">
       <div className="absolute w-full h-full bg-[#25D366] rounded-full animate-ping opacity-30"></div>
@@ -6,6 +23,7 @@ export default function WhatsAppButton() {
         href="https://wa.me/905322830628"
         target="_blank"
         rel="noopener noreferrer"
+        onClick={trackWhatsAppClick}
         className="relative bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 flex items-center justify-center group"
         aria-label="WhatsApp İletişim"
       >
