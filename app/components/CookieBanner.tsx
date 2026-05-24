@@ -23,11 +23,11 @@ export default function CookieBanner() {
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-blue-950 border-t-4 border-orange-600 text-white px-4 py-4 z-[60] shadow-[0_-10px_40px_rgba(0,0,0,0.3)] animate-in slide-in-from-bottom-full duration-700">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="text-sm text-blue-200 text-center md:text-left leading-relaxed flex items-center gap-3">
-          <span className="text-2xl hidden sm:block">🍪</span>
+        <div className="text-sm text-blue-100 text-center md:text-left leading-relaxed flex items-center gap-3">
+          <span className="text-2xl hidden sm:block" aria-hidden="true">🍪</span>
           <p>
             Size daha iyi bir deneyim sunabilmek ve site trafiğini analiz etmek için çerezler kullanılmaktadır. Sitemizi kullanarak çerez kullanımını kabul etmiş sayılırsınız. Detaylar için{" "}
-            <Link href="/cerez-politikasi" className="text-orange-400 hover:text-white font-bold underline transition-colors">
+            <Link href="/cerez-politikasi" className="text-orange-400 hover:text-white font-bold underline transition-colors focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-blue-950 rounded">
               Çerez Politikamızı
             </Link>{" "}
             inceleyebilirsiniz.
@@ -35,7 +35,8 @@ export default function CookieBanner() {
         </div>
         <button 
           onClick={acceptCookies}
-          className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-xl text-sm font-black uppercase tracking-wider transition-all shadow-lg transform hover:-translate-y-1 whitespace-nowrap shrink-0"
+          aria-label="Çerez kullanımını kabul et"
+          className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-xl text-sm font-black uppercase tracking-wider transition-all shadow-lg transform hover:-translate-y-1 whitespace-nowrap shrink-0 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-950"
         >
           Kabul Et
         </button>

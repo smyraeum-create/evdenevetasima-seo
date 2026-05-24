@@ -63,7 +63,7 @@ export default function Home() {
             fill
             priority 
             fetchPriority="high" 
-            quality={75} 
+            quality={60}
             className="object-cover object-center"
           />
           <div className="absolute inset-0 bg-blue-950/80"></div>
@@ -204,7 +204,7 @@ export default function Home() {
       <section className="bg-orange-600 py-20 text-white">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-black mb-4">Türkiye&apos;nin Nakliyat Lideriyle Tanışın</h2>
-          <p className="mb-10 text-orange-50 text-lg md:text-xl max-w-2xl mx-auto font-medium">
+          <p className="mb-10 text-white text-lg md:text-xl max-w-2xl mx-auto font-medium">
             İstanbul&apos;u ilçe ilçe planlıyor, Türkiye&apos;nin her noktasına mühendislik hassasiyetinde kurumsal lojistik taşıyoruz.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
