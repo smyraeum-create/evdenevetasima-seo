@@ -4,10 +4,9 @@ import PageBanner from "../components/PageBanner";
 
 export const metadata: Metadata = {
   title: "Nakliyat Blogu ve Taşınma Rehberi | Evden Eve Taşıma",
-  description: "Ev taşırken dikkat edilmesi gerekenler, nakliyat sigortası, asansörlü taşıma ve ofis lojistiği hakkında en güncel uzman bilgileri.",
+  description: "Ev taşırken dikkat edilmesi gerekenler, nakliyat sigortası, asansörlü taşıma og ofis lojistiği hakkında en güncel uzman bilgileri.",
 };
 
-// DİKKAT: Veritabanı SEO odaklı 6 makaleye çıkarıldı!
 export const blogPosts = [
   { 
     slug: "tasinma-rehberi", 
@@ -36,7 +35,6 @@ export const blogPosts = [
     category: "İpuçları",
     image: "/images/blog/esya-paketleme.webp"
   },
-  // --- YENİ EKLENEN SEO CANAVARI MAKALELER ---
   { 
     slug: "asansorlu-nakliyat-uygunluk", 
     title: "Asansörlü Nakliyat Hangi Binalar İçin Uygundur?",
@@ -84,7 +82,6 @@ export default function BlogPage() {
               
               <Link href={`/blog/${post.slug}`} className="relative h-60 w-full overflow-hidden block">
                 <div className="absolute inset-0 bg-blue-950/20 group-hover:bg-transparent transition-colors z-10"></div>
-                {/* Geçici bir bg rengi verildi, resimler eklenene kadar kutular boş kalmasın */}
                 <img 
                   src={post.image} 
                   alt={post.title} 
@@ -127,7 +124,6 @@ export default function BlogPage() {
           ))}
         </div>
 
-        {/* EYLEM ÇAĞRISI (CALL TO ACTION) */}
         <div className="mt-24 bg-blue-950 p-10 md:p-14 rounded-[2.5rem] shadow-2xl text-center border-b-4 border-orange-500 relative overflow-hidden">
           <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-orange-500/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl"></div>
