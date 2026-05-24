@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Link from "next/link";
-// 🚀 NEXT.JS TURBO RESİM MOTORU EKLENDİ
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -62,7 +61,8 @@ export default function Home() {
             src="/images/banners/hero-main.webp"
             alt="İstanbul Evden Eve Nakliyat"
             fill
-            priority /* İlk yüklenecek resim VIP emri */
+            priority 
+            quality={70} 
             className="object-cover object-center"
           />
           <div className="absolute inset-0 bg-blue-950/80"></div>
@@ -144,6 +144,7 @@ export default function Home() {
                     src={`/images/ilceler/${ilce.id}.webp`}
                     alt={`${ilce.name} Nakliyat`}
                     fill
+                    quality={50}
                     sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
                     className="object-cover opacity-30 group-hover:opacity-10 transition-opacity duration-300 z-0"
                   />
@@ -180,6 +181,7 @@ export default function Home() {
                     src={`/images/ilceler/${ilce.id}.webp`}
                     alt={`${ilce.name} Nakliyat`}
                     fill
+                    quality={50}
                     sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
                     className="object-cover opacity-30 group-hover:opacity-10 transition-opacity duration-300 z-0"
                   />

@@ -48,9 +48,9 @@ export default function RootLayout({
         
         <Script 
           src="https://www.googletagmanager.com/gtag/js?id=G-0CY6EDY93B" 
-          strategy="afterInteractive" 
+          strategy="lazyOnload" 
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -58,7 +58,6 @@ export default function RootLayout({
             gtag('config', 'G-0CY6EDY93B');
           `}
         </Script>
-        {/* 🚀 GOOGLE ANALYTICS BİTİŞİ */}
 
         <Header />
         <main className="flex-grow">
