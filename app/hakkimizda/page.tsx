@@ -1,3 +1,4 @@
+import React from "react";
 import { Metadata } from "next";
 import Link from "next/link";
 import PageBanner from "../components/PageBanner";
@@ -26,7 +27,7 @@ export default function AboutPage() {
               <h2 className="text-3xl font-black text-blue-950 mb-4">Biz Kimiz?</h2>
               <div className="w-20 h-1.5 bg-orange-500 rounded-full mb-6"></div>
               <p className="text-gray-600 leading-relaxed text-lg mb-4 font-medium">
-                Sektördeki klasik ve köhne taşımacılık anlayışını yıkmak, yerine tamamen şeffaf, teknolojik ve profesyonel bir sistem inşa etmek amacıyla yola çıktık. İstanbul merkezli operasyon ağımızı bugün Türkiye'nin 81 iline yaymanın gururunu yaşıyoruz.
+                Sektördeki klasik ve köhne taşımacılık anlayışını yıkmak, yerine tamamen şeffaf, teknolojik ve profesyonel bir sistem inşa etmek amacıyla yola çıktık. İstanbul merkezli operasyon ağımızı bugün Türkiye&apos;nin 81 iline yaymanın gururunu yaşıyoruz.
               </p>
               <p className="text-gray-600 leading-relaxed text-lg font-medium">
                 Bünyemizde bulunan tamamı çelik kasalı modern nakliye araçlarımız, yüksek katlara ulaşabilen modüler asansör sistemlerimiz ve kadrolu uzman marangozlarımız ile taşınma sürecini sizin için bir stres olmaktan çıkarıp, keyifli bir deneyime dönüştürüyoruz.
