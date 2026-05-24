@@ -34,7 +34,7 @@ const hizmetData: Record<string, { baslik: string; kisaOzet: string; detay: stri
   }
 };
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const slugId = params.slug.toLowerCase();
   const data = hizmetData[slugId];
 
@@ -67,18 +67,16 @@ export default function HizmetDetayPage({ params }: { params: { slug: string } }
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
-      
       <PageBanner 
         category="Lojistik Çözümlerimiz"
         title={data.baslik}
         description={data.kisaOzet}
-        bgImage="/images/banners/hizmetler.webp"
+        bgImage="/images/banners/hizmetler.webp" 
       />
 
       <main className="flex-grow py-16 md:py-24 max-w-7xl mx-auto px-4 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           
-          {/* Sol Kolon - İçerik */}
           <div className="lg:col-span-2 space-y-10">
             <div className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100">
               <div className="w-20 h-20 bg-orange-50 rounded-2xl flex items-center justify-center mb-8 border border-orange-100 shadow-inner">
