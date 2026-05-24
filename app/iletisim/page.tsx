@@ -181,7 +181,6 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* SAĞ KOLON: FORMLAR */}
           <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-gray-100 flex flex-col relative overflow-hidden">
             
             {isSuccess && (
