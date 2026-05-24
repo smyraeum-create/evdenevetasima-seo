@@ -201,7 +201,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 🚀 ERİŞİLEBİLİRLİK GÜNCELLEMESİ (100) */}
       <section className="bg-orange-600 py-20 text-white">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-black mb-4">Türkiye&apos;nin Nakliyat Lideriyle Tanışın</h2>
