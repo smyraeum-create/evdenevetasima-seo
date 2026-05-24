@@ -64,6 +64,46 @@ export default function RootLayout({
           `}
         </Script>
 
+        {/* 🚀 SEO AYARI: Schema.org Yapısal Veri (MovingCompany) Entegrasyonu */}
+        <Script id="schema-structured-data" type="application/ld+json" strategy="beforeInteractive">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "MovingCompany",
+              "name": "Evden Eve Taşıma",
+              "image": "https://evdenevetasima.org/brand/logo.svg",
+              "@id": "https://evdenevetasima.org",
+              "url": "https://evdenevetasima.org",
+              "telephone": "+905322830628",
+              "priceRange": "₺₺",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Küçükbakkalköy Mh. Kayışdağı Cd. Ali Ay Sk. No: 3/1 Orkide Apt.",
+                "addressLocality": "Ataşehir",
+                "addressRegion": "İstanbul",
+                "addressCountry": "TR"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 40.9775,
+                "longitude": 29.1105
+              },
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+                ],
+                "opens": "08:00",
+                "closes": "19:00"
+              },
+              "areaServed": {
+                "@type": "Country",
+                "name": "Turkey"
+              }
+            }
+          `}
+        </Script>
+
         <Header />
         <main className="flex-grow">
           {children}
