@@ -11,7 +11,6 @@ export default function Header() {
     <header className="bg-white text-blue-950 shadow-sm sticky top-0 z-50 border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         
-        {/* LOGO */}
         <Link href="/" className="flex items-center gap-3 group relative z-50">
           <div className="relative w-48 h-12 flex items-center transition-transform group-hover:scale-105">
             <Image
@@ -25,9 +24,8 @@ export default function Header() {
           </div>
         </Link>
         
-        {/* MOBİL MENÜ BUTONU */}
         <button 
-          className="md:hidden p-2 text-blue-950 hover:text-orange-500 transition-colors relative z-50"
+          className="md:hidden p-2 text-blue-950 hover:text-orange-600 transition-colors relative z-50"
           onClick={() => setIsMobileOpen(!isMobileOpen)}
           aria-label="Menüyü Aç/Kapat"
         >
@@ -44,92 +42,91 @@ export default function Header() {
 
         {/* MASAÜSTÜ MENÜ */}
         <nav className="hidden md:flex gap-8 font-semibold text-sm items-center">
-          <Link href="/" className="hover:text-orange-500 transition-colors">
+          <Link href="/" className="hover:text-orange-600 transition-colors">
             Ana Sayfa
           </Link>
           
           <div className="relative group/menu">
-            <button className="hover:text-orange-500 transition-colors flex items-center gap-1 py-2 outline-none">
+            <button className="hover:text-orange-600 transition-colors flex items-center gap-1 py-2 outline-none">
               Kurumsal
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
             <div className="absolute top-full left-0 bg-white shadow-xl rounded-2xl border border-gray-100 py-3 w-56 opacity-0 invisible group-hover/menu:opacity-100 group-hover/menu:visible transition-all duration-200 z-50 transform origin-top-left scale-95 group-hover/menu:scale-100">
-              <Link href="/hakkimizda" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors">
+              <Link href="/hakkimizda" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
                 Hakkımızda
               </Link>
-              <Link href="/nakliyat-sozlesmesi" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors">
+              <Link href="/nakliyat-sozlesmesi" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
                 Nakliyat Sözleşmesi
               </Link>
             </div>
           </div>
 
           <div className="relative group/menu">
-            <button className="hover:text-orange-500 transition-colors flex items-center gap-1 py-2 outline-none">
+            <button className="hover:text-orange-600 transition-colors flex items-center gap-1 py-2 outline-none">
               Hizmetlerimiz
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
             <div className="absolute top-full left-0 bg-white shadow-xl rounded-2xl border border-gray-100 py-3 w-64 opacity-0 invisible group-hover/menu:opacity-100 group-hover/menu:visible transition-all duration-200 z-50 transform origin-top-left scale-95 group-hover/menu:scale-100">
-              <Link href="/hizmetler/evden-eve-nakliyat" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors font-bold text-gray-900">
+              <Link href="/hizmetler/evden-eve-nakliyat" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors font-bold text-gray-900">
                 Evden Eve Nakliyat
               </Link>
-              {/* ASANSÖRLÜ NAKLİYAT MASAÜSTÜ MENÜYE EKLENDİ */}
-              <Link href="/hizmetler/asansorlu-nakliyat" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors font-bold text-gray-900">
+              <Link href="/hizmetler/asansorlu-nakliyat" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors font-bold text-gray-900">
                 Asansörlü Nakliyat
               </Link>
-              <Link href="/hizmetler/sehirler-arasi-tasima" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors font-bold text-gray-900">
+              <Link href="/hizmetler/sehirler-arasi-tasima" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors font-bold text-gray-900">
                 Şehirler Arası Taşıma
               </Link>
-              <Link href="/hizmetler/ofis-tasima" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors">
+              <Link href="/hizmetler/ofis-tasima" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
                 Ofis Taşıma
               </Link>
-              <Link href="/hizmetler/parca-esya-tasima" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors">
+              <Link href="/hizmetler/parca-esya-tasima" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
                 Parça Eşya Taşıma
               </Link>
-              <Link href="/hizmetler/arac-nakliyati" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors">
+              <Link href="/hizmetler/arac-nakliyati" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
                 Araç Nakliyatı
               </Link>
-              <Link href="/hizmetler/esya-depolama" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors">
+              <Link href="/hizmetler/esya-depolama" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
                 Eşya Depolama
               </Link>
-              <Link href="/hizmetler/montaj-ve-demontaj" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors">
+              <Link href="/hizmetler/montaj-ve-demontaj" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
                 Montaj ve Demontaj
               </Link>
             </div>
           </div>
 
           <div className="relative group/menu">
-            <button className="hover:text-orange-500 transition-colors flex items-center gap-1 py-2 outline-none">
+            <button className="hover:text-orange-600 transition-colors flex items-center gap-1 py-2 outline-none">
               Araçlar
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
             <div className="absolute top-full left-0 bg-white shadow-xl rounded-2xl border border-gray-100 py-3 w-56 opacity-0 invisible group-hover/menu:opacity-100 group-hover/menu:visible transition-all duration-200 z-50 transform origin-top-left scale-95 group-hover/menu:scale-100">
-              <Link href="/araclar/hacim-hesaplama" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors">
+              <Link href="/araclar/hacim-hesaplama" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
                 Hacim Hesaplama
               </Link>
-              <Link href="/araclar/mesafe-hesaplama" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors">
+              <Link href="/araclar/mesafe-hesaplama" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
                 İller Arası Mesafe
               </Link>
-              <Link href="/araclar/esya-listesi" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors">
+              <Link href="/araclar/esya-listesi" className="block px-5 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
                 Eşya Listesi Formu
               </Link>
             </div>
           </div>
 
-          <Link href="/blog" className="hover:text-orange-500 transition-colors">
+          <Link href="/blog" className="hover:text-orange-600 transition-colors">
             Blog
           </Link>
 
-          <Link href="/iletisim" className="hover:text-orange-500 transition-colors font-bold text-gray-900">
+          <Link href="/iletisim" className="hover:text-orange-600 transition-colors font-bold text-gray-900">
             İletişim
           </Link>
           
-          <a href="tel:+905322830628" className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2.5 rounded-xl font-black transition-all shadow-md transform hover:-translate-y-0.5 flex items-center gap-2 uppercase tracking-wider text-xs">
+          <a href="tel:+905322830628" className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-2.5 rounded-xl font-black transition-all shadow-md transform hover:-translate-y-0.5 flex items-center gap-2 uppercase tracking-wider text-xs">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
@@ -138,55 +135,53 @@ export default function Header() {
         </nav>
       </div>
 
-      {/* MOBİL MENÜ İÇERİĞİ */}
       <div className={`md:hidden absolute w-full bg-white border-t border-gray-100 shadow-2xl transition-all duration-300 ease-in-out ${isMobileOpen ? 'max-h-[85vh] opacity-100 visible overflow-y-auto' : 'max-h-0 opacity-0 invisible overflow-hidden'}`}>
         <div className="px-4 py-6 space-y-6">
-          <Link href="/" onClick={() => setIsMobileOpen(false)} className="block text-lg font-black text-blue-950 hover:text-orange-500">
+          <Link href="/" onClick={() => setIsMobileOpen(false)} className="block text-lg font-black text-blue-950 hover:text-orange-600">
             Ana Sayfa
           </Link>
 
           <div>
-            <div className="text-xs font-black text-orange-500 uppercase tracking-widest mb-3">Kurumsal</div>
+            <div className="text-xs font-black text-orange-600 uppercase tracking-widest mb-3">Kurumsal</div>
             <div className="pl-4 border-l-2 border-gray-100 space-y-3">
-              <Link href="/hakkimizda" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-500">Hakkımızda</Link>
-              <Link href="/nakliyat-sozlesmesi" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-500">Nakliyat Sözleşmesi</Link>
+              <Link href="/hakkimizda" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-600">Hakkımızda</Link>
+              <Link href="/nakliyat-sozlesmesi" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-600">Nakliyat Sözleşmesi</Link>
             </div>
           </div>
 
           <div>
-            <div className="text-xs font-black text-orange-500 uppercase tracking-widest mb-3">Hizmetlerimiz</div>
+            <div className="text-xs font-black text-orange-600 uppercase tracking-widest mb-3">Hizmetlerimiz</div>
             <div className="pl-4 border-l-2 border-gray-100 space-y-3">
-              <Link href="/hizmetler/evden-eve-nakliyat" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-500">Evden Eve Nakliyat</Link>
-              {/* ASANSÖRLÜ NAKLİYAT MOBİL MENÜYE EKLENDİ */}
-              <Link href="/hizmetler/asansorlu-nakliyat" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-500">Asansörlü Nakliyat</Link>
-              <Link href="/hizmetler/sehirler-arasi-tasima" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-500">Şehirler Arası Taşıma</Link>
-              <Link href="/hizmetler/ofis-tasima" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-500">Ofis Taşıma</Link>
-              <Link href="/hizmetler/parca-esya-tasima" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-500">Parça Eşya Taşıma</Link>
-              <Link href="/hizmetler/arac-nakliyati" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-500">Araç Nakliyatı</Link>
-              <Link href="/hizmetler/esya-depolama" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-500">Eşya Depolama</Link>
-              <Link href="/hizmetler/montaj-ve-demontaj" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-500">Montaj ve Demontaj</Link>
+              <Link href="/hizmetler/evden-eve-nakliyat" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-600">Evden Eve Nakliyat</Link>
+              <Link href="/hizmetler/asansorlu-nakliyat" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-600">Asansörlü Nakliyat</Link>
+              <Link href="/hizmetler/sehirler-arasi-tasima" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-600">Şehirler Arası Taşıma</Link>
+              <Link href="/hizmetler/ofis-tasima" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-600">Ofis Taşıma</Link>
+              <Link href="/hizmetler/parca-esya-tasima" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-600">Parça Eşya Taşıma</Link>
+              <Link href="/hizmetler/arac-nakliyati" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-600">Araç Nakliyatı</Link>
+              <Link href="/hizmetler/esya-depolama" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-600">Eşya Depolama</Link>
+              <Link href="/hizmetler/montaj-ve-demontaj" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-600">Montaj ve Demontaj</Link>
             </div>
           </div>
 
           <div>
-            <div className="text-xs font-black text-orange-500 uppercase tracking-widest mb-3">Araçlar</div>
+            <div className="text-xs font-black text-orange-600 uppercase tracking-widest mb-3">Araçlar</div>
             <div className="pl-4 border-l-2 border-gray-100 space-y-3">
-              <Link href="/araclar/hacim-hesaplama" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-500">Hacim Hesaplama</Link>
-              <Link href="/araclar/mesafe-hesaplama" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-500">İller Arası Mesafe</Link>
-              <Link href="/araclar/esya-listesi" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-500">Eşya Listesi Formu</Link>
+              <Link href="/araclar/hacim-hesaplama" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-600">Hacim Hesaplama</Link>
+              <Link href="/araclar/mesafe-hesaplama" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-600">İller Arası Mesafe</Link>
+              <Link href="/araclar/esya-listesi" onClick={() => setIsMobileOpen(false)} className="block font-semibold text-gray-700 hover:text-orange-600">Eşya Listesi Formu</Link>
             </div>
           </div>
 
-          <Link href="/blog" onClick={() => setIsMobileOpen(false)} className="block text-lg font-black text-blue-950 hover:text-orange-500">
+          <Link href="/blog" onClick={() => setIsMobileOpen(false)} className="block text-lg font-black text-blue-950 hover:text-orange-600">
             Blog
           </Link>
 
-          <Link href="/iletisim" onClick={() => setIsMobileOpen(false)} className="block text-lg font-black text-blue-950 hover:text-orange-500">
+          <Link href="/iletisim" onClick={() => setIsMobileOpen(false)} className="block text-lg font-black text-blue-950 hover:text-orange-600">
             İletişim
           </Link>
 
           <div className="pt-4 pb-2">
-            <a href="tel:+905322830628" className="w-full bg-orange-500 text-white py-4 rounded-xl font-black text-lg flex items-center justify-center gap-2 shadow-lg tracking-wide uppercase">
+              <a href="tel:+905322830628" className="w-full bg-orange-600 hover:bg-orange-700 transition-colors text-white py-4 rounded-xl font-black text-lg flex items-center justify-center gap-2 shadow-lg tracking-wide uppercase">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
