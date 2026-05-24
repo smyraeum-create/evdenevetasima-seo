@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/iletisim',
     '/nakliyat-sozlesmesi',
     '/blog',
+    '/hizmetler',
     '/cerez-politikasi',
     '/araclar/hacim-hesaplama',
     '/araclar/mesafe-hesaplama',
@@ -22,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const services = [
     'evden-eve-nakliyat',
+    'asansorlu-nakliyat', 
     'sehirler-arasi-tasima',
     'ofis-tasima',
     'parca-esya-tasima',
@@ -33,6 +35,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.9,
+  }));
+
+  const blogPosts = [
+    'tasinma-rehberi',
+    'nakliyat-sigortasi',
+    'esya-paketleme-tuyolari',
+    'asansorlu-nakliyat-uygunluk',
+    'sehirler-arasi-nakliyat-fiyatlari',
+    'sorunsuz-ofis-tasima'
+  ].map((post) => ({
+    url: `${baseUrl}/blog/${post}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.85,
   }));
 
   const districts = [
@@ -50,5 +66,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...services, ...districts];
+  return [...staticRoutes, ...services, ...blogPosts, ...districts];
 }
