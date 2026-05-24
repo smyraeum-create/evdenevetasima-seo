@@ -34,8 +34,13 @@ const hizmetData: Record<string, { baslik: string; kisaOzet: string; detay: stri
   }
 };
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const slugId = params.slug.toLowerCase();
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const resolvedParams = await params;
+  const slugId = resolvedParams.slug.toLowerCase();
   const data = hizmetData[slugId];
 
   if (!data) {
@@ -49,8 +54,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function HizmetDetayPage({ params }: { params: { slug: string } }) {
-  const slugId = params.slug.toLowerCase();
+export default async function HizmetDetayPage({ params }: Props) {
+  const resolvedParams = await params;
+  const slugId = resolvedParams.slug.toLowerCase();
   const data = hizmetData[slugId];
 
   if (!data) {

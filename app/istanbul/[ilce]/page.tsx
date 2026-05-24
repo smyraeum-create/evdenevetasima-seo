@@ -1,7 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
 import Link from "next/link";
-import PageBanner from "../../components/PageBanner"; // 🚀 DÜZELTME: Sadece 2 kat (../../) yukarı çıkıyoruz!
+import PageBanner from "../../components/PageBanner";
 
 const ilceData: Record<string, { ad: string; yakasi: string; odakKelime: string; aciklama: string }> = {
   atasehir: {
@@ -30,8 +30,13 @@ const ilceData: Record<string, { ad: string; yakasi: string; odakKelime: string;
   }
 };
 
-export function generateMetadata({ params }: { params: { ilce: string } }): Metadata {
-  const ilceId = params.ilce.toLowerCase();
+type Props = {
+  params: Promise<{ ilce: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const resolvedParams = await params;
+  const ilceId = resolvedParams.ilce.toLowerCase();
   
   const data = ilceData[ilceId] || { 
     ad: ilceId.charAt(0).toUpperCase() + ilceId.slice(1), 
@@ -47,8 +52,9 @@ export function generateMetadata({ params }: { params: { ilce: string } }): Meta
   };
 }
 
-export default function IlceNakliyatPage({ params }: { params: { ilce: string } }) {
-  const ilceId = params.ilce.toLowerCase();
+export default async function IlceNakliyatPage({ params }: Props) {
+  const resolvedParams = await params;
+  const ilceId = resolvedParams.ilce.toLowerCase();
   
   const data = ilceData[ilceId] || { 
     ad: ilceId.charAt(0).toUpperCase() + ilceId.slice(1), 
