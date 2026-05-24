@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 import CookieBanner from "./components/CookieBanner";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,6 +45,21 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <body className={`${inter.className} bg-gray-50 text-gray-900 flex flex-col min-h-screen antialiased`}>
+        
+        <Script 
+          src="https://www.googletagmanager.com/gtag/js?id=G-0CY6EDY93B" 
+          strategy="afterInteractive" 
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-0CY6EDY93B');
+          `}
+        </Script>
+        {/* 🚀 GOOGLE ANALYTICS BİTİŞİ */}
+
         <Header />
         <main className="flex-grow">
           {children}
