@@ -41,7 +41,7 @@ export default function ContactPage() {
 
   // Form State
   const [formData, setFormData] = useState({
-    hizmetTuru: "İletişim Sayfası Hızlı Form", // Backend tablosunda belli olması için sabit değer
+    hizmetTuru: "İletişim Sayfası Hızlı Form",
     adSoyad: "",
     telefon: "",
     nereden: "",
@@ -55,7 +55,6 @@ export default function ContactPage() {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  // FORMU KENDİ SUNUCUMUZA GÖNDERME FONKSİYONU
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -170,7 +169,7 @@ export default function ContactPage() {
 
             <div className="w-full h-80 bg-gray-200 rounded-3xl overflow-hidden shadow-xl border border-gray-100">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.652136005891!2d29.1090333!3d40.978132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac612c6f1cdcd%3A0xc08cf705baebf8a6!2zS8O8w6fDvGtiYWtrYWxrw7Z5LCBLYXnEscWfZGHEn8SxIENkLiBBbGkgQXkgU2suIE5vOjMgRDoxLCBBdGFxZWhpci_EsHN0YW5idWw!5e0!3m2!1str!2str!4v1716518400000!5m2!1str!2str" 
+                src="https://maps.google.com/maps?q=Küçükbakkalköy%20Mh.%20Kayışdağı%20Cd.%20Ali%20Ay%20Sk.%20No%3A%203%2F1%20Ataşehir%20%2F%20İSTANBUL&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
@@ -182,10 +181,8 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* SAĞ KOLON: FORMLAR */}
           <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-gray-100 flex flex-col relative overflow-hidden">
             
-            {/* BAŞARI MESAJI OVERLAY */}
             {isSuccess && (
               <div className="absolute inset-0 z-50 bg-white/95 backdrop-blur-sm flex flex-col items-center justify-center p-8 text-center animate-in fade-in duration-300">
                 <div className="w-20 h-20 bg-green-100 text-green-500 rounded-full flex items-center justify-center mb-4 shadow-inner">
